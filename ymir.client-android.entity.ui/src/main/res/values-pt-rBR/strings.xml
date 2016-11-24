@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="loading_essential_data">Carregando dados essenciais</string>
+    <string name="no_data">Sem dados para mostrar</string>
+    <string name="unavailable_action">Ação indisponível, por favor aguarde.</string>
+    <string name="operation_denied">Operação negada</string>
+    <string name="deletion_denied">Exclusão negada</string>
+
+    <string name="record_saving_format">Salvando %s…</string>
+    <string name="record_saving_sync_format">Preparando %s para envio…</string>
+    <string name="record_saved_format">%s salvo</string>
+    <string name="record_saved_sync_format">Enviando %s</string>
+    <string name="record_saved_error_format">Não foi possível salvar o %s</string>
+    <string name="record_deleted_format">%s excluído</string>
+
+    <string name="record_deletion_confirmation">Os dados do %s serão perdidos.</string>
+    <string name="record_deletion_confirmation_positive">Excluir</string>
+    <string name="record_deletion_relationship_violation_format">Existem %1$s que apontam para este %2$s. Por favor, exclua-os primeiro.</string>
+
+    <string name="entity_editing_automatic_global_error_empty">A operação não pode ser completada</string>
+    <string name="entity_editing_automatic_global_error_format_singular">Corrija o seguinte campo: %s</string>
+    <string name="entity_editing_automatic_global_error_format_plural">Corrija os seguintes campos: %s</string>
+    <string name="entity_editing_image_selection_error">Não foi possível carregar a imagem</string>
+    <string name="entity_editing_image_selection_error_msg">Por favor, tente novamente ou contate o suporte.</string>
+
+    <string name="action_search">Pesquisar</string>
+    <string name="action_select">Selecionar</string>
+    <string name="action_add">Adicionar</string>
+    <string name="action_save">Salvar</string>
+    <string name="action_send">Enviar</string>
+    <string name="action_confirm">Confirmar</string>
+    <string name="action_edit">Editar</string>
+    <string name="action_delete">Excluir</string>
+    <string name="action_remove">Remover</string>
+    <string name="action_detail">Resumir</string>
+    <string name="action_duplicate">Duplicar</string>
+    <string name="record_action_detail">Detalhar</string>
+
+    <string name="yes">Sim</string>
+    <string name="no">Não</string>
+    <string name="word_list_last_separator">" e "</string>
+
+    <!-- Strings do EntityEditingMessageListDialogFragment, que logo deve ser movido para um projeto de implementações antigas -->
+    <string name="entity_editing_message_group_multiple_relationship_record_detail_format">Registro %d</string>
+    <string name="entity_editing_message_list_dialog_message">Mensagens dos campos:</string>
+    <string name="entity_editing_message_list_dialog_message_empty">Não há mensagens nos campos.</string>
+
+    <!-- Strings do uCrop, utilizado na seleção de imagens na edição de registro -->
+    <string name="ucrop_label_edit_photo" tools:override="true">Cortar imagem</string>
+    <string name="ucrop_menu_crop" tools:override="true">Cortar</string>
+</resources>

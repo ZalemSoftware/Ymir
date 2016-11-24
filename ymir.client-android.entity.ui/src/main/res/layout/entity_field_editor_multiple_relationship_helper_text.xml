@@ -1,0 +1,8 @@
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    style="?fieldEditorHelperStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="@dimen/entity_editing_error_margin"
+    android:gravity="center"
+    android:visibility="gone"
+    android:includeFontPadding="false" />

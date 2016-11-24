@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false" android:color="@color/transparent_high_white"/>
+    <!-- O Android possui uma limitação que não permite definir um atributo de estilo (?colorAccent, por exemplo) em um selector. Desta forma,
+         é obrigado a definir a cor diretamente aqui e se outro tema quiser modificar a cor, vai ter que duplicar o selector... Mais informações:
+         http://stackoverflow.com/questions/9005015/android-color-selector-doesnt-work-with-custom-attributes -->
+    <item android:state_activated="true" android:color="@color/accent_material_dark"/>
+    <item android:color="@color/transparent_low_white"/>
+</selector>

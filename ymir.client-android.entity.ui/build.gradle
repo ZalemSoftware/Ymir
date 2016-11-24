@@ -1,0 +1,44 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile libs.roboguice
+    provided libs.roboblender
+    compile project(':ymir.client-android.commons')
+    compile project(':ymir.client-android.perspective')
+    compile project(':ymir.client-android.entity.data')
+    compile project(':ymir.client-android.entity.ui:ymir.client-android.entity.ui.configuration')
+    compile project(':ymir.client-android.entity.ui:ymir.client-android.entity.ui.event')
+
+    //Seleção facilitada de imagens (câmera/galeria) por Intent.
+    compile ('com.github.jkwiecien:EasyImage:1.2.1')  {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
+    //Corte de imagens selecionadas.
+    compile ('com.yalantis:ucrop:1.2.4')  {
+        exclude group: 'com.android.support', module: 'appcompat-v7'
+    }
+    //Letras com fundo colorido para os registros que não possuem imagens (como no Inbox).
+    compile 'com.amulyakhare:com.amulyakhare.textdrawable:1.0.1'
+}
+
+
+//Necessário para o RoboBlender gerar o banco de anotações, otimizando a injeção de dependências (o "provided roboblender" ativa isto).
+tasks.withType(JavaCompile) {task ->
+    options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.client.android.entity.ui"
+}

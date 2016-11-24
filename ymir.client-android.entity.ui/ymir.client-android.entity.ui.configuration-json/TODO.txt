@@ -1,0 +1,1 @@
+1- Colocar exemplos de configurações JSON válidas no Javadoc das classes que representam as configurações.

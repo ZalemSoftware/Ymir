@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?entityEditingFieldsStyle"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbarStyle="outsideOverlay"
+    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+    <LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+	    android:orientation="vertical"
+	    android:showDividers="middle"
+	    android:divider="?entityEditingFieldsDivider">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="attribute_name" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:showDividers="middle"
+            android:divider="?entityEditingFieldsDivider"
+            android:orientation="horizontal">
+
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:tag="attribute_price" />
+            <View
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:tag="attribute_type" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="attribute_picture" />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:tag="attribute_description" />
+    </LinearLayout>
+</ScrollView>

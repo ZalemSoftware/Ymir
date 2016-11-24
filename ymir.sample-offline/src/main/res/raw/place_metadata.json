@@ -1,0 +1,50 @@
+{
+	"name": "Place",
+	"channel": "ymir_sample_Place",
+	
+	"attributes": [{
+        "name": "picture",
+        "type": "IMAGE"
+    }, {
+		"name": "name",
+		"type": "TEXT"
+	}, {
+	  	"name": "phone",
+	  	"type": "TEXT"
+	}, {
+	  	"name": "email",
+	  	"type": "TEXT"
+	}, {
+		"name": "observations",
+		"type": "TEXT"
+	}, {
+		"name": "street",
+		"type": "TEXT"
+	}, {
+		"name": "streetNumber",
+		"type": "INTEGER"
+	}, {
+		"name": "neighborhood",
+		"type": "TEXT"
+	}, {
+		"name": "city",
+		"type": "TEXT"
+	}, {
+	  	"name": "state",
+	  	"type": "TEXT"
+	}, {
+		"name": "postalCode",
+		"type": "TEXT"
+	}, {
+		//Campo calculado persistido com todos os elementos do endereço, utilizado apenas no detalhamento.
+		"name": "fullAddress",
+		"type": "TEXT"
+	}],
+	
+	"relationships": [{
+		"name": "expenses",
+		"type": "ASSOCIATION_ARRAY",
+		"entity": "Expense",
+		"mappedBy": "place"
+	}]
+}

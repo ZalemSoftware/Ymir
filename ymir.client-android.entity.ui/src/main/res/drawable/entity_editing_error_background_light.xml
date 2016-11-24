@@ -1,0 +1,44 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- A forma como este Drawable teve de ser feito faz com que o degradê de baixo se altere quando a View muda de tamanho (por exemplo, quando
+         de 1 linha para duas). Isto ocorre porque o Shape com o Gradient ocupa o tamanho total da View, mostrando apenas seus últimos 4dps.
+         O correto seria utilizar um Shape como o comentado abaixo, que possui o tamanho exato de 4dp e é posicionado na parte de baixo.
+         O problema é que, apesar do preview do Android Studio mostrar o Drawable corretamente, no dispositivo os atributos "height" e "gravity"
+         do Item são ignorados, fazendo com que o Shape ainda ocupe o tamanho total da View... -->
+    <!--<item android:height="4dp" android:gravity="bottom">-->
+        <!--<shape android:shape="rectangle">-->
+            <!--<gradient-->
+                <!--android:startColor="#E6E6E6"-->
+                <!--android:endColor="#D7D7D7"-->
+                <!--android:angle="270" />-->
+        <!--</shape>-->
+    <!--</item>-->
+
+    <!-- Degradê da parte inferior -->
+    <item>
+        <shape android:shape="rectangle">
+            <gradient
+                android:centerY="0.08"
+                android:startColor="@color/light_gray_215"
+                android:centerColor="@color/light_gray_230"
+                android:angle="90" />
+        </shape>
+    </item>
+
+    <!-- Linha num tom mais forte na parte inferior do degradê -->
+    <item android:bottom="1dp" android:left="-2dp" android:right="-2dp">
+        <shape android:shape="rectangle">
+            <stroke
+                android:width="0.5dp"
+                android:color="@color/light_gray_210" />
+        </shape>
+    </item>
+
+    <!-- Fundo normal-->
+    <item android:bottom="4dp">
+        <shape android:shape="rectangle" >
+            <solid android:color="@color/light_gray_230" />
+            <padding android:bottom="4dp" />
+        </shape>
+    </item>
+</layer-list>

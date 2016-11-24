@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?configLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="?configLayoutMarginHorizontal"
+    android:paddingBottom="?configLayoutMarginVertical"
+    android:orientation="horizontal"
+    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+    <!-- Não utiliza mais o SquareLayout nos layouts de lista pq ele não funciona como deveria com o RecyclerView. -->
+    <!-- Não utiliza dimens para o tamanho da imagem pq ele varia de acordo com o layout. -->
+    <ImageView
+        android:layout_width="67.5dp"
+        android:layout_height="67.5dp"
+        android:layout_marginTop="?configLayoutMarginVertical"
+        android:tag="IMAGE1"
+        tools:ignore="ContentDescription" />
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:paddingLeft="?configLayoutSpacingLarge"
+	    android:orientation="horizontal" >
+	    
+	    <TextView
+       		android:textAppearance="?android:attr/textAppearanceMedium"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.5"
+            android:paddingTop="?configLayoutMarginVertical"
+            android:paddingRight="?configLayoutSpacingSmall"
+	        android:gravity="center_vertical"
+	        android:lines="3"
+	        android:ellipsize="end"
+	        android:tag="TEXT1" 
+	        android:layout_gravity="left"/>
+	        <!-- É obrigado a colocar o layout_gravity="left" se não o segundo TextView acaba saindo fora do Layout misteriosamente. Tudo indica que seja um bug. -->
+    
+      	<TextView
+       		android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="0.5"
+            android:paddingTop="?configLayoutMarginVertical"
+	        android:paddingLeft="?configLayoutSpacingSmall"
+	        android:gravity="center_vertical"
+	        android:lines="3"
+	        android:ellipsize="end"
+	        android:tag="TEXT2" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="?configLayoutMarginHorizontal"
+            android:minHeight="?configLayoutMarginVertical">
+            <FrameLayout
+                android:id="@+id/list_layout_record_action_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="?configLayoutMarginVertical"
+                android:paddingBottom="?configLayoutSpacingSmall"
+                android:paddingLeft="?configLayoutSpacingSmall"
+                android:paddingRight="?configLayoutMarginHorizontal"
+                android:clickable="true"
+                android:visibility="gone" />
+        </FrameLayout>
+	</LinearLayout>
+</LinearLayout>

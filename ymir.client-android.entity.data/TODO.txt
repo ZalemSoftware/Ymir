@@ -1,0 +1,5 @@
+2 - Implementar as operações adicionais na construção de queries quando for necessário:
+	- ITerminalStatement:
+		IGroupByStatement groupBy(...);
+		IJoinStatement join(String entityName);
+		IJoinStatement join(ISelectQuery subQuery);

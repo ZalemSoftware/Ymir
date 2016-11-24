@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Theme">
+		<attr name="perspectiveToolbarStyle" format="reference"/>
+		<attr name="navigationMenuListStyle" format="reference"/>
+		<attr name="perspectiveFABMarginEnd" format="dimension"/>
+		<attr name="perspectiveFABMarginBottom" format="dimension"/>
+	</declare-styleable>
+
+    <!-- XML da declaração das perspectivas -->
+    <declare-styleable name="Perspectives" />
+    <declare-styleable name="Perspective">
+        <attr name="title" />
+        <attr name="theme" />
+        <attr name="className" />
+     	<attr name="launchMode" format="enum">
+     	    <!-- Modo de lançamento padrão. Cria uma nova instância da perspectiva a cada lançamento. -->
+	        <enum name="standard" value="0" />
+	        <!-- Modo de lançamento singular. Cria a instâncida da perspectiva apenas no primeiro lançamento, passando a utilizar a mesma instância nos próximos lançamentos. -->
+	        <enum name="single" value="1" />
+	    </attr>
+    </declare-styleable>
+    <declare-styleable name="IntentFilter" />
+    <declare-styleable name="Action">
+        <attr name="name" />
+    </declare-styleable>
+    <declare-styleable name="Category">
+        <attr name="name" />
+    </declare-styleable>
+    <declare-styleable name="Argument">
+        <attr name="key" format="string" />
+        <attr name="value" format="string" />
+        <attr name="arrayValue" format="string" />
+    </declare-styleable>
+</resources>

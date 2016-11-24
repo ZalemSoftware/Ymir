@@ -1,0 +1,25 @@
+{
+	"name": "Expense",
+	"channel": "ymir_sample_Expense",
+	
+	"attributes": [{
+	  	"name": "value",
+	  	"type": "DECIMAL"
+	}, {
+	  	"name": "date",
+	  	"type": "DATE"
+	}, {
+	  	"name": "observations",
+	  	"type": "TEXT"
+    }],
+	
+	"relationships": [{
+		"name": "place",
+		"type": "ASSOCIATION",
+		"entity": "Place"
+	}, {
+        "name": "product",
+        "type": "ASSOCIATION",
+        "entity": "Product"
+    }]
+}

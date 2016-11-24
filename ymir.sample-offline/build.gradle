@@ -1,0 +1,46 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+        targetSdkVersion versions.compileSdk
+        applicationId "br.com.zalem.ymir.sample.offline"
+        versionCode 1
+        versionName "1.0.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    //Utiliza UIs prontas para a manipulação dos dados das entidades.
+    compile project(':ymir.client-android.entity.ui')
+    //Configura a camada de UI através de arquivos JSON.
+    compile project(':ymir.client-android.entity.ui:ymir.client-android.entity.ui.configuration-json')
+    //Dispõe os dados para a camada UI com o OpenMobster.
+    compile project(':ymir.client-android.entity.data-openmobster')
+
+    //Necessário para a injeção de dependências.
+    provided 'org.roboguice:roboblender:3.0.1'
+}
+
+//Necessário para o RoboBlender gerar o banco de anotações, otimizando a injeção de dependências (o "provided roboblender" ativa isto).
+//Se as classes do aplicativo não utilizam injeção de dependências (@Inject), pode ser removido.
+tasks.withType(JavaCompile) { task ->
+    options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.sample.offline"
+}
+
+
+repositories {
+    //Necessário por causa do OpenMobster.
+    //TODO remover quando o OpenMobster for colocado no github/jcenter.
+    mavenLocal()
+}

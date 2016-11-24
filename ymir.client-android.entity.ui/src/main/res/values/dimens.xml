@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="dialog_content_top_margin">20dp</dimen>
+    <dimen name="dialog_content_margin">24dp</dimen>
+    <dimen name="pager_fragment_pages_margin">8dp</dimen>
+    <dimen name="list_layout_record_action_icon_size">24dp</dimen>
+    <dimen name="fab_content_list_bottom_padding">92dp</dimen>
+
+
+    <dimen name="entity_list_empty_view_margin">16dp</dimen>
+    <dimen name="entity_detail_fragment_field_list_item_horizontal_margin">16dp</dimen>
+    <dimen name="entity_detail_fragment_field_list_item_vertical_margin">8dp</dimen>
+    <dimen name="entity_detail_fragment_field_spacing">16dp</dimen>
+    <dimen name="entity_detail_fragment_field_label_width">110dp</dimen>
+
+
+    <dimen name="entity_field_editor_list_padding">16dp</dimen>
+    <dimen name="entity_field_editor_list_divider_size">16dp</dimen>
+    <dimen name="entity_field_editor_label_spacing">4dp</dimen>
+    <dimen name="entity_field_editor_helper_spacing">@dimen/entity_field_editor_label_spacing</dimen>
+
+    <dimen name="entity_field_editor_single_relationship_top_margin">3.5dp</dimen>
+    <dimen name="entity_field_editor_enum_dialog_min_height">60dp</dimen>
+    <dimen name="entity_field_editor_number_button_width">48dp</dimen>
+    <dimen name="entity_field_editor_number_button_height">24dp</dimen>
+    <dimen name="entity_field_editor_number_button_horizontal_margin">16dp</dimen>
+    <dimen name="entity_field_editor_number_edit_bottom_margin">4dp</dimen>
+    <dimen name="entity_field_editor_image_horizontal_margin">10dp</dimen>
+    <dimen name="entity_field_editor_image_vertical_margin">2dp</dimen>
+    <dimen name="entity_field_editor_image_size">78dp</dimen>
+    <dimen name="entity_field_editor_image_padding_value">4dp</dimen>
+    <dimen name="entity_field_editor_image_padding_null">8dp</dimen>
+
+
+    <dimen name="entity_editing_error_margin">16dp</dimen>
+    <dimen name="entity_editing_scroll_to_margin">20dp</dimen>
+    <dimen name="entity_editing_message_list_header_item_top_margin">16dp</dimen>
+    <dimen name="entity_editing_message_list_header_item_spacing">8dp</dimen>
+    <dimen name="entity_editing_message_list_message_item_top_margin">8dp</dimen>
+    <dimen name="entity_editing_message_list_message_item_text_top_margin">1.5dp</dimen>
+    <dimen name="entity_editing_message_list_message_item_text_left_margin">8dp</dimen>
+    <dimen name="entity_editing_message_list_message_item_icon_size">24dp</dimen>
+</resources>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?singleRelationshipFieldEditorStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/entity_field_editor_single_relationship_top_margin" >
+    
+    <!-- A view do registro de uma entidade será inserida aqui dentro, então este layout não é inútil. -->
+    <RelativeLayout
+	    android:id="@+id/entity_field_editor_single_relationship_hint_container"
+        style="?configLayoutStyle"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent" >
+        
+		<TextView
+		    android:id="@+id/entity_field_editor_single_relationship_hint"
+            style="?singleRelationshipFieldEditorHintStyle"
+		    android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:layout_width="wrap_content"
+		    android:layout_height="wrap_content"
+		    android:layout_centerInParent="true" />
+    </RelativeLayout> 
+</FrameLayout>

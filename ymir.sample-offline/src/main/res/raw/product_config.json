@@ -1,0 +1,170 @@
+{
+	"name": "Product",
+    "displayName": {
+        "singular": "Produto/Serviço",
+        "plural": "Produtos/Serviços"
+    },
+
+    "fieldsDefaults": [{
+        "name": "name",
+        "label": "Nome"
+    }, {
+        "name": "description",
+        "label": "Descrição"
+    }, {
+        "name": "type",
+        "label": "Tipo"
+	}, {
+		"name": "price",
+		"label": "Preço",
+		"mask": "CURRENCY_DEFAULT"
+	}, {
+        "name": "picture",
+        "label": "Foto",
+        "mask": "IMAGE_CIRCULAR",
+        "surrogateAttribute": "name"
+	}],
+	
+	"list": {
+		"tabs": [{
+			"title": "Produtos",
+			"filter": {
+				"fields": {
+					"attribute": "type",
+					"values": "Produto"
+				}
+			}
+		}, {
+			"title": "Serviços",
+			"filter": {
+				"fields": {
+					"attribute": "type",
+					"values": "Serviço"
+				}
+			}
+		}],
+		"layout": {
+			"type": "LIST_LAYOUT_3",
+			"fields": [{
+                "attribute": "picture",
+                "layoutField": "IMAGE1"
+            }, {
+				"attribute": "name",
+				"layoutField": "TEXT1"
+			}, {
+				"attribute": "description",
+				"layoutField": "TEXT2"
+			}, {
+				"attribute": "price",
+				"layoutField": "TEXT3"
+			}]
+		},
+		"order": {
+			"fields": [{
+                "attribute": "name"
+			}, {
+                "attribute": "price",
+                "asc": false
+            }]
+		}
+	},
+	"selection": {
+		"layout": {
+            "type": "LIST_LAYOUT_3",
+            "fields": [{
+                "attribute": "picture",
+                "layoutField": "IMAGE1"
+            }, {
+                "attribute": "name",
+                "layoutField": "TEXT1"
+            }, {
+                "attribute": "type",
+                "layoutField": "TEXT2"
+            }, {
+                "attribute": "price",
+                "layoutField": "TEXT3"
+            }]
+		},
+        "order": {
+            "fields": [{
+                "attribute": "name"
+            }, {
+                "attribute": "price",
+                "asc": false
+            }]
+        }
+	},
+
+	"detail": {
+        "tabs": [{
+            "title": "Detalhes",
+            "header": {
+                "type": "DETAIL_LAYOUT_1",
+                "fields": [{
+                    "attribute": "picture",
+                    "layoutField": "IMAGE1"
+                }, {
+                    "attribute": "name",
+                    "layoutField": "TEXT1"
+                }, {
+                    "attribute": "type",
+                    "layoutField": "TEXT2"
+                }, {
+                    "attribute": "price",
+                    "layoutField": "TEXT3"
+                }]
+            },
+            "fields": [{
+                "attribute": "description"
+            }]
+        }, {
+            "title": "Gastos",
+            "fields": [{
+                "relationship": "expenses",
+                "listConfig": {
+                    "layout": {
+                        "type": "LIST_LAYOUT_3",
+                        "fields": [{
+                            "attribute": ["place", "picture"],
+                            "layoutField": "IMAGE1"
+                        }, {
+                            "attribute": ["place", "name"],
+                            "layoutField": "TEXT1"
+                        }, {
+                            "attribute": "date",
+                            "layoutField": "TEXT2"
+                        }, {
+                            "attribute": "value",
+                            "layoutField": "TEXT3"
+                        }]
+                    }
+                }
+            }]
+        }]
+	},
+
+	"editing": {
+		"local": {
+			"canCreate": true,
+			"canUpdate": true,
+			"canDelete": true
+		},
+        "layout": "product_general_editing_layout",
+		"fields": [{
+			"attribute": "name",
+			"inputType": "TYPE_TEXT_FLAG_CAP_SENTENCES"
+        }, {
+			"attribute": "price"
+        }, {
+			"attribute": "type",
+			"enum": {
+				"values": ["Produto", "Serviço"]
+			}
+		}, {
+            "attribute": "picture"
+		}, {
+			"attribute": "description",
+			"inputType": ["TYPE_TEXT_FLAG_MULTI_LINE", "TYPE_TEXT_FLAG_CAP_SENTENCES"]
+		}]
+	}
+}

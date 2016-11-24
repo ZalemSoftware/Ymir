@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Versão do botão de Checkbox do tema Material do AppCompat (abc_btn_check_material) que não possui o espaço vazio no lado esquerdo,
+     permitindo que ele fique alinhado com outros componentes em uma lista na vertical.
+     É obrigado a referenciar diretamente o "abc_btn_check_material"  ao invés do atributo "listChoiceIndicatorMultiple" pq o Android antes
+     da versão 5 não suporta a referência de atributos de tema dentro de Drawables. -->
+<inset xmlns:android="http://schemas.android.com/apk/res/android"
+    android:drawable="@drawable/abc_btn_check_material"
+    android:insetLeft="-7dp"
+    android:insetRight="7dp" />

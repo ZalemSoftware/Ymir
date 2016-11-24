@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="auto_activation_error">Auto-activation error</string>
+    <string name="unreachable_server_dialog_message">Could not connect to the server. Please check your internet connection and try again.</string>
+</resources>

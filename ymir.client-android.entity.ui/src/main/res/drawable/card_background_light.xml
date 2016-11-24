@@ -1,0 +1,30 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item>
+     	<shape android:shape="rectangle">
+     	    <gradient 
+     	        android:centerY="0.9825"
+				android:centerColor="@color/light_gray_210"
+     	        android:endColor="@color/light_gray_238"
+     	        android:angle="270" />
+            <!-- Há um bug no Android que não permite referenciar cores em Drawables, então o "endColor" não pode ser "?android:colorBackground"
+                 A correção do bug foi feita apenas no Android 5, então até esta ser a versão mínima, terá de ser usado o workaround que coloca diretamente a cor: "@color/light_gray_238".
+                 Link do bug: https://code.google.com/p/android/issues/detail?id=26251 -->
+     	    
+	        <corners
+	            android:topLeftRadius="2dp"
+	            android:topRightRadius="2dp"
+	            android:bottomLeftRadius="3dp"
+	            android:bottomRightRadius="3dp" /> <!-- A) Os raios do topo devem ser o mesmo do raio do segundo item e os raios de baixo devem ser os mesmos acrescidos de 1. -->
+	    </shape>
+	</item>
+	
+   	<item android:bottom="3dp"> <!-- B) Deve ser o mesmo tanto do padding -->
+		<shape android:shape="rectangle" >
+		    <solid android:color="@android:color/white" />
+
+     	    <padding android:bottom="3dp"/> <!-- B) Deve ser o mesmo tanto do declarado no item -->
+     	    
+		    <corners android:radius="2dp" /> <!-- A) Deve ser o mesmo tanto dos raios do topo do primeiro item -->
+		</shape>
+	</item>
+</layer-list>

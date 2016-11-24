@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Background que concede o efeito de click e possui o fundo branco ao invés de transparente.
+     Este drawable teve de ser criado pois o RecyclerView não suporta a definição de um "selector" (comum em um ListView) que já faz este efeito automaticamente.
+     Além disso, a maioria dos layouts como o LinearLayout não suporta a definição de um "foreground", o que também resolveria o problema. -->
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@android:color/white" />
+    <item android:drawable="?android:selectableItemBackground" />
+</layer-list>

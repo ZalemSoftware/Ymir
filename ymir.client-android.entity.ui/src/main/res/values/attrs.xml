@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Theme">
+		<attr name="configLayoutStyle" format="reference"/>
+		<attr name="configLayoutMarginVertical" format="dimension"/>
+		<attr name="configLayoutMarginHorizontal" format="dimension"/>
+		<attr name="configLayoutSpacingSmall" format="dimension"/>
+		<attr name="configLayoutSpacingLarge" format="dimension"/>
+		<attr name="listLayoutRecordActionIconStyle" format="reference"/>
+		<attr name="listLayoutRecordActionIconColor" format="color"/>
+
+		<attr name="entityListStyle" format="reference"/>
+		<attr name="entityListPaddingTop" format="dimension"/>
+		<attr name="entityListPaddingBottom" format="dimension"/>
+
+		<attr name="entityDetailHeaderStyle" format="reference"/>
+		<attr name="entityDetailFieldStyle" format="reference"/>
+		<attr name="entityDetailFieldsPaddingTop" format="dimension"/>
+		<attr name="entityDetailFieldsPaddingBottom" format="dimension"/>
+
+		<attr name="entityEditingErrorStyle" format="reference"/>
+		<attr name="entityEditingFieldsStyle" format="reference"/>
+		<attr name="entityEditingFieldsDivider" format="reference|color"/>
+		<attr name="entityEditingFieldsPaddingTop" format="dimension"/>
+		<attr name="entityEditingFieldsPaddingBottom" format="dimension"/>
+		<attr name="entityEditingFieldsPaddingLeft" format="dimension"/>
+		<attr name="entityEditingFieldsPaddingRight" format="dimension"/>
+		<attr name="fieldEditorLabelStyle" format="reference"/>
+		<attr name="fieldEditorHelperStyle" format="reference"/>
+		<attr name="textFieldEditorStyle" format="reference"/>
+		<attr name="enumFieldEditorStyle" format="reference"/>
+		<attr name="booleanFieldEditorStyle" format="reference"/>
+		<attr name="dateTimeFieldEditorStyle" format="reference"/>
+		<attr name="imageFieldEditorNullStyle" format="reference"/>
+		<attr name="imageFieldEditorValueStyle" format="reference"/>
+		<attr name="singleRelationshipFieldEditorStyle" format="reference"/>
+		<attr name="singleRelationshipFieldEditorHintStyle" format="reference"/>
+		<attr name="multipleRelationshipFieldEditorStyle" format="reference"/>
+		<attr name="multipleRelationshipFieldEditorItemStyle" format="reference"/>
+
+		<attr name="pagerTabStyle" format="reference"/>
+	</declare-styleable>
+</resources>

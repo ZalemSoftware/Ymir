@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+      xmlns:ymir="http://schemas.android.com/apk/res-auto">
+	<item android:id="@+id/action_save"
+	  android:title="@string/action_save"
+	  android:icon="@drawable/ic_action_save"
+	  android:orderInCategory="10"
+      ymir:showAsAction="ifRoom"/>
+   	<item android:id="@+id/action_send"
+	  android:title="@string/action_send"
+	  android:icon="@drawable/ic_action_send"
+	  android:orderInCategory="11"
+      ymir:showAsAction="ifRoom" />
+   	<item android:id="@+id/action_delete"
+	  android:title="@string/action_delete"
+	  android:icon="@drawable/ic_action_delete"
+	  android:orderInCategory="13"
+      ymir:showAsAction="ifRoom" />
+</menu>

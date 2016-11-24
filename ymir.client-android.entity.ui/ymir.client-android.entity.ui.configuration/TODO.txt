@@ -1,0 +1,3 @@
+1 - Quando o documento de configuração estiver pronto (pelo menos a parte do Cliente), colocar uma referência para ele no Javadoc do IClientConfig.
+
+2 - Passar um tipo de object contextualizado para os métodos de verificaçao da configuração, de forma que o validador possa confirmar a validade de configurações que ele não sabe como (por exemplo, a classe da máscara e futuramente campos cujo o tipo é uma entidade). 

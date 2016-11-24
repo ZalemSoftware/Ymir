@@ -1,0 +1,57 @@
+<manifest
+    package="br.com.zalem.ymir.client.android.entity.data.openmobster"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <application>
+        <service
+            android:name="org.openmobster.core.mobileCloud.push.StartSync"
+            android:exported="false"/>
+        <receiver
+            android:name="org.openmobster.core.mobileCloud.push.StartSyncBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="org.openmobster.sync.start"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.openmobster.core.mobileCloud.push.StartNetwork"
+            android:exported="false"/>
+        <receiver android:name="org.openmobster.core.mobileCloud.push.NetworkStartupBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE"/>
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="org.openmobster.core.mobileCloud.android.module.connection.BackgroundActivatePushSocket"
+            android:exported="false"/>
+
+        <receiver
+            android:name="org.openmobster.core.mobileCloud.api.ui.framework.push.PushBroadcastReceiver"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="org.openmobster.push.PUSH_MESSAGE"/>
+                <action android:name="org.openmobster.push.D2D_MESSAGE"/>
+            </intent-filter>
+        </receiver>
+        <receiver android:name="org.openmobster.core.mobileCloud.android.module.connection.ActivatePushSocket"/>
+
+        <service
+            android:name="org.openmobster.core.mobileCloud.android.module.connection.DeadSocketService"
+            android:exported="false"/>
+        <receiver
+            android:name="org.openmobster.core.mobileCloud.android.module.connection.DeadSocketDetector"
+            android:exported="false">
+            <intent-filter>
+                <action android:name="org.openmobster.push.PUSH_MESSAGE"/>
+                <action android:name="org.openmobster.push.D2D_MESSAGE"/>
+            </intent-filter>
+        </receiver>
+    </application>
+</manifest>

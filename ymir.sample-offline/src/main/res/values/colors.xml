@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="teal">#009688</color>
+    <color name="red">#E53935</color>
+    <color name="dark_red">#B71C1C</color>
+    <color name="purple">#5E35B1</color>
+    <color name="dark_purple">#311B92</color>
+    <color name="blue">#1E88E5</color>
+    <color name="dark_blue">#0D47A1</color>
+
+    <color name="primary_expense">@color/red</color>
+    <color name="primary_dark_expense">@color/dark_red</color>
+    <color name="primary_product">@color/purple</color>
+    <color name="primary_dark_product">@color/dark_purple</color>
+    <color name="primary_place">@color/blue</color>
+    <color name="primary_dark_place">@color/dark_blue</color>
+</resources>

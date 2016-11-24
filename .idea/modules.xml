@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Ymir.iml" filepath="$PROJECT_DIR$/Ymir.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.commons/ymir.client-android.commons.iml" filepath="$PROJECT_DIR$/ymir.client-android.commons/ymir.client-android.commons.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.entity.data/ymir.client-android.entity.data.iml" filepath="$PROJECT_DIR$/ymir.client-android.entity.data/ymir.client-android.entity.data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.entity.data-openmobster/ymir.client-android.entity.data-openmobster.iml" filepath="$PROJECT_DIR$/ymir.client-android.entity.data-openmobster/ymir.client-android.entity.data-openmobster.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.iml" filepath="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration/ymir.client-android.entity.ui.configuration.iml" filepath="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration/ymir.client-android.entity.ui.configuration.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration-json/ymir.client-android.entity.ui.configuration-json.iml" filepath="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration-json/ymir.client-android.entity.ui.configuration-json.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.event/ymir.client-android.entity.ui.event.iml" filepath="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.event/ymir.client-android.entity.ui.event.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.client-android.perspective/ymir.client-android.perspective.iml" filepath="$PROJECT_DIR$/ymir.client-android.perspective/ymir.client-android.perspective.iml" />
+      <module fileurl="file://$PROJECT_DIR$/ymir.sample-offline/ymir.sample-offline.iml" filepath="$PROJECT_DIR$/ymir.sample-offline/ymir.sample-offline.iml" />
+    </modules>
+  </component>
+</project>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?configLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="?configLayoutMarginHorizontal"
+    android:paddingRight="?configLayoutMarginHorizontal"
+    android:paddingTop="?configLayoutMarginVertical"
+    android:paddingBottom="?configLayoutMarginVertical"
+    android:orientation="horizontal"
+    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+    <!-- Não utiliza dimens para o tamanho da imagem pq ele varia de acordo com o layout. -->
+    <ImageView
+        android:layout_width="85dp"
+        android:layout_height="85dp"
+        android:tag="IMAGE1"
+        android:layout_marginRight="?configLayoutSpacingLarge"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+	    
+	    <!-- O textIsSelectable acaba fazendo com que o texto ganhe scroll vertical, desligando o ellipsize.
+	    	 Por isto, faz com que o scroll seja explícito, fazendo com que o usuário saiba que há mais texto abaixo.  -->
+	    <TextView
+			android:textAppearance="?android:attr/textAppearanceLarge"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:gravity="center_vertical"
+			android:lines="2"
+            android:textIsSelectable="true"
+			android:scrollbars="vertical"
+			android:tag="TEXT1" />
+	
+	    <TextView
+	        android:textAppearance="?android:attr/textAppearanceMedium"
+		    android:layout_width="match_parent"
+		    android:layout_height="wrap_content"
+		    android:paddingTop="?configLayoutSpacingSmall"
+            android:textIsSelectable="true"
+	        android:singleLine="true"
+	        android:ellipsize="end"
+	        android:tag="TEXT2" />
+	</LinearLayout>
+</LinearLayout>

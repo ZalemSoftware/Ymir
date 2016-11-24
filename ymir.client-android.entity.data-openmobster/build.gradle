@@ -1,0 +1,31 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+android {
+    compileSdkVersion versions.compileSdk
+    buildToolsVersion versions.buildTools
+
+    defaultConfig {
+        minSdkVersion versions.minSdk
+    }
+
+    buildTypes {
+        release {
+            consumerProguardFiles 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    compile project(':ymir.client-android.entity.data')
+    compile project(':ymir.client-android.commons')
+
+    compile 'org.openmobster.core.mobileCloud.android.2_0:device-sdk:2.4-M3.1'
+    compile libs.jackson
+}
+
+
+repositories {
+    //TODO remover quando o OpenMobster for colocado no github/jcenter.
+    mavenLocal()
+}

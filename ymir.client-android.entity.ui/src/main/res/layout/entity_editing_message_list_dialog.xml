@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:paddingTop="@dimen/dialog_content_top_margin"
+    android:paddingLeft="@dimen/dialog_content_margin"
+    android:paddingRight="@dimen/dialog_content_margin"
+    android:layout_height="match_parent"
+    android:layout_width="match_parent" >
+
+    <TextView
+	    android:id="@+id/entity_editing_message_list_dialog_text"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_gravity="center_vertical" />
+
+	<ListView
+	    android:id="@+id/entity_editing_message_list_dialog_list"
+		android:choiceMode="none"
+		android:divider="@null"
+	    android:scrollbarStyle="outsideOverlay"
+	    android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+	</ListView>
+</LinearLayout>

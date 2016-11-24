@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="Theme">
+        <attr name="swipeRefreshLayoutStyle" format="reference"/>
+
+        <attr name="colorError" format="reference|color"/>
+    </declare-styleable>
+
+    <declare-styleable name="SquareLayout">
+		<attr name="baseMeasure" format="enum">
+	        <enum name="width" value="0" />
+	        <enum name="height" value="1" />
+	    </attr>
+    </declare-styleable>
+    
+    <declare-styleable name="EnhancedSwipeRefreshLayout">
+		<attr name="color1" format="color" />
+		<attr name="color2" format="color" />
+		<attr name="color3" format="color" />
+		<attr name="color4" format="color" />
+    </declare-styleable>
+
+    <declare-styleable name="EnhancedRecyclerView">
+        <attr name="numColumns" format="integer"/>
+        <attr name="fixedSize" format="boolean"/>
+        <attr name="divider" />
+    </declare-styleable>
+
+    <declare-styleable name="EnhancedEditTextPreference">
+        <attr name="summaryEmptyText" format="string"/>
+    </declare-styleable>
+
+    <!-- XML do menu de navegação -->
+    <attr name="id" format="reference" />
+    <declare-styleable name="YmirMenu" />
+    <declare-styleable name="YmirMenuGroup">
+        <attr name="id" />
+    </declare-styleable>
+    <declare-styleable name="YmirMenuItem">
+        <attr name="id" />
+        <attr name="title" />
+        <attr name="icon" />
+        <attr name="color" />
+    </declare-styleable>
+    <declare-styleable name="Intent">
+        <attr name="className" format="string" />
+        <attr name="action" format="string" />
+        <attr name="category" format="string" />
+        <attr name="flags">
+            <!-- Determina que a backstack de perspectivas deve ser limpa antes de abrir a nova perspectiva. -->
+            <flag name="clear_backstack" value="1" />
+            <flag name="ignore_unfinished_work" value="2" />
+            <flag name="new_instance" value="4" />
+        </attr>
+    </declare-styleable>
+    <declare-styleable name="Category">
+        <attr name="name" format="string" />
+    </declare-styleable>
+
+    <!-- Componentes do AppCompat -->
+    <attr name="tintAPI21" format="boolean" />
+    <declare-styleable name="AppCompatBCheckBox">
+        <attr name="tintAPI21" />
+    </declare-styleable>
+    <declare-styleable name="AppCompatBEditText">
+        <attr name="tintAPI21" />
+    </declare-styleable>
+    <declare-styleable name="AppCompatBTextView">
+        <attr name="tintAPI21" />
+    </declare-styleable>
+    <declare-styleable name="AppCompatLinearLayout">
+        <attr name="tintAPI21" />
+    </declare-styleable>
+</resources>

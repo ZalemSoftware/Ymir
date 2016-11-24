@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ListView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+	android:layout_height="match_parent"
+	android:choiceMode="none"
+    android:clipToPadding="false"
+    android:paddingTop="?entityDetailFieldsPaddingTop"
+    android:paddingBottom="?entityDetailFieldsPaddingBottom"
+    android:scrollbarStyle="outsideOverlay"
+    android:overScrollFooter="@android:color/transparent" /> <!-- É necessário definir o "overScrollFooter" como transparente para evitar que o divider apareça depois do último item quando o paddingBottom está definido. -->
+

@@ -1,0 +1,7 @@
+<app-conf>
+    <channels>
+        <channel name='ymir_sample_Expense'/>
+        <channel name='ymir_sample_Place'/>
+        <channel name='ymir_sample_Product'/>
+    </channels>
+</app-conf>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ymirMenu xmlns:ymir="http://schemas.android.com/apk/res-auto">
+	<item
+        ymir:id="@+id/action_select"
+        ymir:title="@string/action_select"
+        ymir:icon="@drawable/ic_action_accept" />
+</ymirMenu>

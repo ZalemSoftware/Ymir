@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:minHeight="@dimen/entity_field_editor_enum_dialog_min_height"
+	android:paddingTop="@dimen/dialog_content_top_margin">
+    
+	<ListView
+	    android:id="@+id/entity_field_editor_enum_dialog_list"
+        android:scrollbarStyle="outsideOverlay"
+		android:divider="@null"
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content" >
+	</ListView>
+	
+	<TextView
+	    android:id="@+id/entity_field_editor_enum_dialog_empty_view"
+	    android:layout_width="wrap_content"
+	    android:layout_height="wrap_content"
+	    android:layout_centerInParent="true"
+   	    android:visibility="gone" 
+	    android:text="@string/no_data" />	
+	
+    <ProgressBar
+        android:id="@+id/entity_field_editor_enum_dialog_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:visibility="gone"
+        android:indeterminateOnly="true" />
+</RelativeLayout>

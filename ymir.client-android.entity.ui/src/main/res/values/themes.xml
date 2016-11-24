@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema Claro do Ymir -->
+    <style name="Theme.Ymir.Light.Entity" parent="Theme.Ymir.Light.Perspective">
+        <item name="android:listDivider">@drawable/list_divider_light</item>
+
+        <item name="listLayoutRecordActionIconStyle">@style/Widget.Ymir.Light.ListLayoutRecordActionIcon</item>
+        <item name="listLayoutRecordActionIconColor">@null</item>
+
+        <!-- O espaçamento é padrão em todos os overlays, então pode definí-lo aqui. -->
+        <item name="configLayoutSpacingSmall">8dp</item>
+        <item name="configLayoutSpacingLarge">16dp</item>
+
+        <item name="entityListStyle">@style/Widget.Ymir.Light.EntityList</item>
+        <item name="entityListPaddingTop">0dp</item>
+        <item name="entityListPaddingBottom">0dp</item>
+
+        <item name="entityDetailHeaderStyle">@style/Widget.Ymir.Light.EntityDetailHeader</item>
+        <item name="entityDetailFieldStyle">@style/Widget.Ymir.Light.EntityDetailField</item>
+        <item name="entityDetailFieldsPaddingTop">0dp</item>
+        <item name="entityDetailFieldsPaddingBottom">0dp</item>
+
+        <item name="entityEditingErrorStyle">@style/Widget.Ymir.Light.EntityEditingError</item>
+        <item name="entityEditingFieldsStyle">@style/Widget.Ymir.Light.EntityEditingFields</item>
+        <item name="entityEditingFieldsDivider">@drawable/entity_editing_fields_divider_light</item>
+        <item name="entityEditingFieldsPaddingTop">@dimen/entity_field_editor_list_padding</item>
+        <item name="entityEditingFieldsPaddingBottom">@dimen/entity_field_editor_list_padding</item>
+        <item name="entityEditingFieldsPaddingLeft">@dimen/entity_field_editor_list_padding</item>
+        <item name="entityEditingFieldsPaddingRight">@dimen/entity_field_editor_list_padding</item>
+        <item name="fieldEditorLabelStyle">@style/Widget.Ymir.FieldEditorLabel.Light</item>
+        <item name="fieldEditorHelperStyle">@style/Widget.Ymir.FieldEditorLabel.Light</item>
+        <item name="textFieldEditorStyle">@style/Widget.Ymir.Light.TextFieldEditor</item>
+        <item name="dateTimeFieldEditorStyle">@style/Widget.Ymir.DialogBasedFieldEditor.Light</item>
+        <item name="enumFieldEditorStyle">@style/Widget.Ymir.DialogBasedFieldEditor.Light</item>
+        <item name="booleanFieldEditorStyle">@style/Widget.Ymir.Light.BooleanFieldEditor</item>
+        <item name="imageFieldEditorValueStyle">@style/Widget.Ymir.Light.ImageFieldEditor</item>
+        <item name="imageFieldEditorNullStyle">@style/Widget.Ymir.Light.ImageFieldEditor.Null</item>
+        <item name="singleRelationshipFieldEditorStyle">@style/Widget.Ymir.Light.SingleRelationshipFieldEditor</item>
+        <item name="singleRelationshipFieldEditorHintStyle">@style/Widget.Ymir.Light.SingleRelationshipFieldEditorHint</item>
+        <item name="multipleRelationshipFieldEditorStyle">@style/Widget.Ymir.Light.MultipleRelationshipFieldEditor</item>
+
+        <item name="swipeRefreshLayoutStyle">@style/Widget.Ymir.Light.SwipeRefreshLayout</item>
+        <item name="pagerTabStyle">@style/Widget.Ymir.Light.Toolbar.Entity</item>
+    </style>
+
+
+    <style name="ThemeOverlay.Ymir.Light.ConfigLayout" parent="" />
+    <style name="ThemeOverlay.Ymir.Light.ConfigLayout.Flat">
+        <item name="configLayoutStyle">@style/Widget.Ymir.Light.ConfigLayout.Flat</item>
+        <item name="configLayoutMarginVertical">8dp</item>
+        <item name="configLayoutMarginHorizontal">16dp</item>
+    </style>
+    <style name="ThemeOverlay.Ymir.Light.ConfigLayout.Card">
+        <item name="configLayoutStyle">@style/Widget.Ymir.Light.ConfigLayout.Card</item>
+        <item name="configLayoutMarginVertical">8dp</item>
+        <item name="configLayoutMarginHorizontal">8dp</item>
+    </style>
+    <style name="ThemeOverlay.Ymir.Light.ConfigLayout.Card.Full">
+        <item name="configLayoutMarginHorizontal">16dp</item>
+    </style>
+
+    <style name="ThemeOverlay.Ymir.Light.MultipleRelationshipFieldEditorItem.Flat" parent="ThemeOverlay.Ymir.Light.ConfigLayout.Flat">
+        <item name="configLayoutStyle">@null</item>
+        <item name="multipleRelationshipFieldEditorItemStyle">@style/Widget.Ymir.Light.ConfigLayout.Flat</item>
+    </style>
+
+    <!-- Este Overlay não aborda todos os componentes ainda pq ele pode ser completado de acordo com a demanda. -->
+    <style name="ThemeOverlay.Ymir.Dark.Toolbar.Entity" parent="ThemeOverlay.Ymir.Dark.Toolbar">
+        <item name="fieldEditorLabelStyle">@style/Widget.Ymir.FieldEditorLabel.Dark</item>
+        <item name="fieldEditorHelperStyle">@style/Widget.Ymir.FieldEditorLabel.Dark</item>
+        <item name="dateTimeFieldEditorStyle">@style/Widget.Ymir.DialogBasedFieldEditor.Dark</item>
+        <item name="enumFieldEditorStyle">@style/Widget.Ymir.DialogBasedFieldEditor.Dark</item>
+    </style>
+
+    <style name="ThemeOverlay.Ymir.EntityFragment.FAB" parent="">
+        <item name="entityListPaddingBottom">@dimen/fab_content_list_bottom_padding</item>
+        <item name="entityDetailFieldsPaddingBottom">@dimen/fab_content_list_bottom_padding</item>
+        <item name="entityEditingFieldsPaddingBottom">@dimen/fab_content_list_bottom_padding</item>
+    </style>
+</resources>

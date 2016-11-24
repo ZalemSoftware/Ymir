@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.Toolbar
+        style="?attr/perspectiveToolbarStyle"
+        android:id="@+id/perspective_toolbar"
+        android:layout_height="?actionBarSize"
+        android:layout_width="match_parent" />
+
+    <android.support.v4.widget.DrawerLayout
+        android:id="@+id/perspective_drawer_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:descendantFocusability="afterDescendants"> <!-- Utiliza o descendantFocusability="afterDescendants" porque o DrawerLayout acaba ficando focável mesmo se colocar focusable="false". -->
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <FrameLayout
+                android:id="@+id/perspective_perspectives_container"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+
+            <android.support.design.widget.EnhancedFloatingActionButton
+                android:id="@+id/perspective_fab"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="?perspectiveFABMarginEnd"
+                android:layout_marginRight="?perspectiveFABMarginEnd"
+                android:layout_marginBottom="?perspectiveFABMarginBottom"
+                android:visibility="gone" />
+        </FrameLayout>
+
+        <ListView
+            android:id="@+id/perspective_navigation_menu_list"
+            style="?attr/navigationMenuListStyle"
+            android:layout_width="@dimen/navigation_menu_width"
+            android:layout_height="match_parent"
+            android:layout_gravity="start"
+            android:choiceMode="singleChoice" />
+    </android.support.v4.widget.DrawerLayout>
+</LinearLayout>

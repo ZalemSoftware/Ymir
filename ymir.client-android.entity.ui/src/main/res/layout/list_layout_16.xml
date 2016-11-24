@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?configLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingLeft="?configLayoutMarginHorizontal"
+    android:orientation="horizontal"
+    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+    <!-- Não utiliza mais o SquareLayout nos layouts de lista pq ele não funciona como deveria com o RecyclerView. -->
+    <!-- Não utiliza dimens para o tamanho da imagem pq ele varia de acordo com o layout. -->
+    <ImageView
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginRight="?configLayoutSpacingLarge"
+        android:layout_gravity="center"
+        android:tag="IMAGE1"
+        tools:ignore="ContentDescription" />
+    
+	<include layout="@layout/list_layout_12_content"
+         android:layout_width="match_parent"
+         android:layout_height="wrap_content"
+         android:layout_marginBottom="?configLayoutMarginVertical" />
+</LinearLayout>

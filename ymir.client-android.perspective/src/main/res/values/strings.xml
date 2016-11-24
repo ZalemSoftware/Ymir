@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="navigation_menu_open">Open navigation menu</string>
+    <string name="navigation_menu_close">Close navigation menu</string>
+    <string name="unfinished_work_confirmation">There are unfinished works that will be lost.</string>
+    <string name="unfinished_work_confirmation_positive">Continue</string>
+</resources>

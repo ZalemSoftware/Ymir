@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <integer name="entity_list_fragment_num_columns">1</integer>
+
+    <!-- Cores material baseadas no Inbox, uma para cada letra do alfabeto -->
+    <integer-array name="config_layout_image_surrogate_background_colors">
+        <item>0xFFF7C000</item>
+        <item>0xFFFFA800</item>
+        <item>0xFFFF8A60</item>
+        <item>0xFFC2C2C2</item>
+        <item>0xFF8FA4AF</item>
+        <item>0xFFA2887E</item>
+        <item>0xFFA3A3A3</item>
+        <item>0xFFAFB5E2</item>
+        <item>0xFFB39BDD</item>
+        <item>0xFFC2C2C2</item>
+        <item>0xFF7CDEEB</item>
+        <item>0xFFBCAAA4</item>
+        <item>0xFFADD67D</item>
+        <item>0xFFE25F51</item>
+        <item>0xFFF26091</item>
+        <item>0xFFBB65CA</item>
+        <item>0xFF9572CF</item>
+        <item>0xFF7884CD</item>
+        <item>0xFF5B95F9</item>
+        <item>0xFF48C2F9</item>
+        <item>0xFF45D0E2</item>
+        <item>0xFF48B6AC</item>
+        <item>0xFF52BC89</item>
+        <item>0xFF9BCE5F</item>
+        <item>0xFFD4E34A</item>
+        <item>0xFFFEDA10</item>
+    </integer-array>
+</resources>

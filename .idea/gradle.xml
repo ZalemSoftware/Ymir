@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="GradleSettings">
+    <option name="linkedExternalProjectsSettings">
+      <GradleProjectSettings>
+        <option name="distributionType" value="DEFAULT_WRAPPED" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="modules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ymir.client-android.commons" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.data" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.data-openmobster" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration-json" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.event" />
+            <option value="$PROJECT_DIR$/ymir.client-android.perspective" />
+            <option value="$PROJECT_DIR$/ymir.sample-offline" />
+          </set>
+        </option>
+        <option name="myModules">
+          <set>
+            <option value="$PROJECT_DIR$" />
+            <option value="$PROJECT_DIR$/ymir.client-android.commons" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.data" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.data-openmobster" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration-json" />
+            <option value="$PROJECT_DIR$/ymir.client-android.entity.ui/ymir.client-android.entity.ui.event" />
+            <option value="$PROJECT_DIR$/ymir.client-android.perspective" />
+            <option value="$PROJECT_DIR$/ymir.sample-offline" />
+          </set>
+        </option>
+      </GradleProjectSettings>
+    </option>
+  </component>
+</project>

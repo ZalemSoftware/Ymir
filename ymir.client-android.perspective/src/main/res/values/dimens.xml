@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="navigation_menu_list_item_icon_margin">32dp</dimen>
+    <dimen name="navigation_menu_list_item_icon_size">24dp</dimen>
+    <dimen name="navigation_menu_list_separator_vertical_margin">8dp</dimen>
+    <dimen name="navigation_menu_width">280dp</dimen>
+
+    <!-- Necessário por causa do problema descrito em: https://code.google.com/p/android/issues/detail?id=175330 -->
+    <dimen name="perspective_fab_margin_end">6dp</dimen>
+    <dimen name="perspective_fab_margin_bottom">0dp</dimen>
+</resources>

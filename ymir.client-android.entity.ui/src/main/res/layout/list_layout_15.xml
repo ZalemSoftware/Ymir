@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?configLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="?configLayoutMarginHorizontal"
+    android:paddingBottom="?configLayoutMarginVertical"
+    tools:ignore="RtlSymmetry,RtlHardcoded">
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.5"
+            android:paddingTop="?configLayoutMarginVertical"
+            android:paddingRight="?configLayoutSpacingSmall"
+			android:gravity="center_vertical"
+            android:lines="2"
+			android:ellipsize="end"
+			android:tag="TEXT1"
+			android:layout_gravity="left"/>
+		<!-- É obrigado a colocar o layout_gravity="left" se não o TextView acaba saindo fora do Layout misteriosamente. Tudo indica que seja um bug. -->
+
+		<TextView
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.5"
+            android:paddingTop="?configLayoutMarginVertical"
+            android:paddingLeft="?configLayoutSpacingSmall"
+			android:gravity="right|center_vertical"
+            android:lines="2"
+			android:ellipsize="end"
+			android:tag="TEXT2" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="?configLayoutMarginHorizontal"
+            android:minHeight="?configLayoutMarginVertical">
+            <FrameLayout
+                android:id="@+id/list_layout_record_action_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="?configLayoutMarginVertical"
+                android:paddingBottom="?configLayoutSpacingSmall"
+                android:paddingLeft="?configLayoutSpacingSmall"
+                android:paddingRight="?configLayoutMarginHorizontal"
+                android:clickable="true"
+                android:visibility="gone" />
+        </FrameLayout>
+	</LinearLayout>
+
+	<LinearLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+        android:paddingRight="?configLayoutMarginHorizontal"
+		android:orientation="horizontal" >
+
+		<TextView
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.5"
+            android:paddingRight="?configLayoutSpacingSmall"
+			android:gravity="left"
+			android:singleLine="true"
+            android:ellipsize="end"
+			android:tag="TEXT3" />
+
+		<TextView
+			android:textAppearance="?android:attr/textAppearanceSmall"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="0.5"
+            android:paddingLeft="?configLayoutSpacingSmall"
+			android:gravity="right"
+            android:singleLine="true"
+			android:ellipsize="end"
+			android:tag="TEXT4" />
+	</LinearLayout>
+</LinearLayout>

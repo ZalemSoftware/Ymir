@@ -1,0 +1,179 @@
+OBS: Devido a nova separaçao dos projetos, este arquivo pode conter TODOs relacionados aos fontes de .commons, .perspective e .entity.ui.event.
+
+-7 - Os métodos de "refresh" dos editores de relacionamentos (MultipleRelationshipFieldEditor, etc.) não avisam sobre a alteração dos dados quando não há mudança no número de registros.
+     Isto pode fazer com que um registro tenha seus valores atualizados mas os campos calculados baseados nestes valores não (por exemplo, se atualizar o preço de um produto, o valor do item não será alterado).
+        - Avaliar se o impacto de ter o refresh avisando sobre as alterações pode causar travamentos (devido a um grande número de recalculos).
+        - O AbstractEntityEditingFragment e o EntityEditingPerspective devem dispor formas de desligar o comportamento de refresh automático, possibilitando que isto seja desligado em cenários offline.
+
+-6 - Implementar o editor para campos do tipo "datetime". Atualmente, apenas o editor de enumeração deste tipo está disponível.
+     A grande questão deste tipo de campo é que não há diálogo nativo do Android para selecionar data e hora. Existe uma biblioteca interessante aqui, mas ela não está no repositório do maven, o que exigiria baixar os fontes e compilá-los junto...
+        https://github.com/jjobes/SlideDateTimePicker
+     Quando o editor for implementado, alterar a seguinte interface para incluí-lo:
+        IFieldEditorVisitor
+
+-5 - Projetar um esquema mais robusto de máscaras, onde elas possam carregar suas definições do banco sem utilizar a Thread de UI. Desta forma, será possível utilizar máscaras nas enumerações para traduzir os valores em nomes.
+	- Provavelmente será necessário que o esquema de máscaras se torne um componente isolado (filho do -ui), sendo que o MaskManager seria mais um "manager injetável", tendo a declaração de máscaras em um arquivo próprio e etc.
+	- Nesta ocasião, o BasicMaskType tem que ir para o componente de máscaras. As dependencias entre os componentes ficariam assim:
+	    - o -ui-config dependerá do componente de máscaras;
+	    - o componente de mascaras dependerá do -data.
+	  Tambem será necessário remover o "getMaskFromConfig" do MaskManager, pois o esquema de verificar se é BasicMaskType e se vai pegar a default é proveniente da configuraçã. Então o -config terá que dispor uma forma (ConfigUtils) pra obter a máscara. Basicamente mover o "getMaskFromContig".
+	  Também verificar se o EntityAttributeFormatter ficará no componente de máscara. Se sim, o "fromConfig" e o "createTypedFormatter" (o com o IFormattableFieldMapping) dele também deve ser movido para o ConfigUtils.
+	- Uma das motivações para se fazer este novo esquema é a necesidade de máscaras para registros (relacionamentos). Isto pq seria necessário configurar a máscara, dizendo qual atributo se deseja mostrar do registro. Inclusve até as mascaras para atributos poderiam ter determinados comportamentos configurados, como na máscara de data dizer se quer padrão brasileiro ou internacional e assim usar a mesma máscara em todo o resto da configuração.
+	    - O EnumRelationshipEditor poderia receber diretamente uma mascara de registro ao invés do campo que representa o registro.
+-3 - Verificar sobre a máscara padrão de campos decimais, pois está muito ruim de editar valores assim. Avaliar a possibilidade de dar um pouco mais de controle para as máscaras sobre o texto sendo editado, para que elas possam já parsear e formatar numa bagada só (diretamente pelo android.text.Editable). Uma outra opção seria a de permitir que a máscara diga se ela deve formatar os valores em edição. Desta forma, ela apenas parsearia os valores, sem mexer no texto. Então no caso a máscara padrão teria isto false, enquanto a CURRENCY_BRL, true.
+
+-2 - Verificar sobre a nulificação dos campos de edição. A maioria dos tipos de campos deve disponibilizar uma forma de zerar o campo de uma vez (por exemplo, campos de texto devem possuir um X no canto para poder zerá-lo. Isto é essencial em campos decimais também para poder remover um valor 0,00 deopis que se começa a editar).
+	- Talvez o segunte cara possa ser usado para os EditText... mas ai teria que verificar pq o TextView dos campos de data / hora tbm precisaria de algo assim: https://github.com/yanchenko/droidparts/blob/develop/droidparts/src/org/droidparts/widget/ClearableEditText.java
+
+-1 - Verificar sobre a representação visual dos editores quando ficam com "editable = false". Em editores como o SingleRelationshipFieldEditor, por exemplo, talvez fosse interessante mostrar um Toast quando o usuário clica para selecionar o cliente e não pode.
+	- Tbm verificar se o fato de não haver permissão para criar determinada entidade (em editores de composição) deve deixar o campo desabilitado ou exibir um Toast.
+	
+-0.5 - Verificar sobre a possibilidade de mostrar um Toast quando o "EntitySelectionPerspective.onOptionsItemSelected" percebe que o registro n existe e volta para o modo de lista.
+
+-0.1 - Implementar controles na edição para o campos de relacionamentos cujo os registros foram excluídos/removidos. Atualmente vai dar erro no "MobileBeanEntityRecord.findEntityRecord". Isto pode ocorrer a qualquer momento... verificar sobre isto também nas demais funcionalidades (detalhes, lista, etc).
+	
+0 - Verificar sobre a necessidade do uso da support library. Atualmente é necessário pq o método Fragment.getChildFragmentManager só está disponível no Android 4.2, mas isto acaba forçando que todo o esquema de Fragmentos venha da support library, até o uso de FragmentActivity. Ou seja, o quanto antes for possível, aumentar a versão mínima para 4.2.
+
+1 - Criar opção (em uma tela de configurações) de apagar as pesquisas recenetes (todas ou de tela específica).
+
+2 - Criar uma extensão de TextView que engloba a necessidade de determinar sua altura através do número de linhas máximas, mas fazendo com que o texto possa ser centralizado caso o número máximo de linhas não tenha sido atingido (vide contorno para isto no list_layout_4).
+	
+3 - Verificar sobre a possibilidade de ter uma Action Bar que suma junto com o Scroll pra baixo de uma ListView, por exemplo, mas que volte com o scroll pra cima (Quick Return).
+
+4 - Avaliar as vantagens de executar todas AsyncTask do EntityListFragment em um executor paralelo. Aparentemente, com o executor paralelo, seria possível que o usuário pressionasse o "Up" enquanto um Filtro está sendo executado e a AsynTask que carregará todos os registros novamente poderia executar em paralelo com o Filtro. Desta forma, a AsyncTask do Filtro será cancelada assim que terminar o "doInBackground", não executando nenhuma alteração na tela. Entretanto, se o usuário tentar fazer muitas operações enlouquecidamente, haverá uma parada da mesma forma (dois ou mais Filtros que demoram, por exemplo).
+
+5 - Verificar sobre os RuntimeException lançados, pois alguns deles podem ser apenas logados e uma mensagem pode ser exibida pro usuário (falando para entrar em contato com o suporte, etc).
+
+6 - Testar o SquareLayout em um emulador com Android 4.4 (o cache de medidas que ele faz pode anular a redimensionalização do layout pai).
+
+7 - Avaliar a possibilidade de estinguir o ResourceToLayoutMapper e fazer a obtenção do layout através do nome do layout (ele teria que ser exatamente igual ao nome do tipo de layout). Esta busta poderia ser feita utilizando o método "Resources.getIdentifier".
+
+8 - Rever os paddings dos layouts:
+	- Aparentemente os textviews não precisam de paddings verticais, pq já deixam uma boa distância do topo e de baixo.
+	- Talvez seja necessário aumentar os paddings horizontais, pq o texto fica muito colado da imagem.
+	
+9 - Fazer com que o recarregamento dos itens das listas sejam feitas apenas depois de um tempo (ou seja, continua no onStart mas só se tiver passado, por exemplo, 5 minutos).
+
+11 - Desabilitar o botão de pesquisa quando a lista de registros de entidade estiver carregando os dados essensiais.
+
+
+13 - Verificar sobre uso de memória dos sets do IntentFilter (PerspectiveInflater).
+
+14 - Implementar suporte a demais tipos de dados nos argumentos declarados no xml de perspectivas.
+
+17 - Verificar todas as classes e implementar "gets" nas coisas que são setáveis. Por exemplo, se tem um "set" de um listener, tem que ter o "get" tbm.
+
+19 - Considerar esconder as perspectivas colocadas na backstack ao invés de destruí-las. Isto só se aplicaria a perspectivas abertas que não são raizes (menu de navegação).
+	- Poderia ser feito algum esquema pra só mandar um certo número de perspectivas escondidas, para economizar memória. Por exemplo, apenas manter uma perspectiva anterior. Desta forma, conforme a pessoa for voltando na backstack, o PerspectiveManager vai carregando a penúltima de forma escondida.
+
+20 - Verificar sobre os parâmetros do método PerspectiveActivity.startPespective(Intent, boolean, boolean).
+
+21 - Considerar reabrir toda a backstack de uma persepctiva raiz (menu) quando ela for aberta pelo menu.
+
+22 - O fragmento de detalhe sempre guarda o id do registro que está mostrando para que quando a aplicação for destruída / restaurada ele possa já iniciar mostrando o registro novamente. O problema é que quando ele está escondido (pq o usuário está vendo a lista) ele continua guardando este id do registro e acaba sempre gastando tempo desenhando as views referentes ao registr antigo. Isto não está causando nenhum problema aparente, mas em casos de detalhes com muitas abas ou abas com relacionamentos múltiplos, isto pode atrasar a Threat de UI. O melhor seria o fragmento de detalhe ser limpo sempre que é escondido.
+
+23 - Fazer com que o Menu do Ymir tenha um comportamento similar ao Menu do Android quanto a invocação de sua ação. Então no caso cada item do menu poderia ter um listener setado e ele mesmo trataria a abertura de perspectivas caso houvesse um intent definido no item.
+
+24 - Por enquanto o SingleRelationshipFieldEditor e o MultipleRelationshipFieldEditor exige que a entidade referenciada possua a configuração do layout padrão de lista. Verificar sobre haver uma configuração específica para a representação da entidade em um campo de edição de relacionamento. 
+
+25 - Revisar o AbstractEntityListFragment, o AbstractEntityDetailFragment e suas subclasses, pois eles podem ter algumas pequenas partes que podem ser movidas para a classe abstrata.
+
+26 - Verificar sobre números negativos nos editores numéricos (no caso, teria que botar algo no DefaultMask e no parser de Currency).
+
+27 - Verificar sobre a impossibilidade de dar backspace em um número negativo nos editores numéricos (pq se tiver "-8", por exemplo, ele retorna null do parse de "-" e aí volta pro valor anterior...).
+
+28 - Verificar sobre uma forma de generalizar os comportamentos comuns dos fragmentos "pager", pois há muita repetição de código entre eles. O impedimento é que cada um tem que estender a sua classe abstrata de fragmento...
+
+29 - Rever sobre as dimensões de outros layouts utilizados no entity_field_editor_multiple_relationship.xml
+
+30 - Rever sobre o "updateSelectedMenuItem" e "isUpEnabled" do PerspectiveActivity. Ele deveria considerar apenas perspectias "single". Desta forma, talvez seja possível verificar diretamente pelo PerspectiveInstance ao invés de ver se o Intent bate.
+
+31 - Verificar sobre uma forma de generalizar os comportamentos comuns do SingleRelationshipFieldEditor e MultipleRelationshipFieldEditor.
+
+32 - Rever sobre os métodos que atualizam a action bar do PerspectiveActivity e os momentos em que são chamados (notifyVisibilityChanged, notifyReady, etc).
+
+33 - Verificar se há um lugar melhor para recuperar os valores dos fragmentos de edição (AbstractEntityEditingFragment). Atualmente, é necessário guardar o "savedInstanceState" para só depois ver se ele vai ser usado (depois do "initialize"). 
+
+34 - Pode ocorrer problema no esquema de salvamento de estado dos editores se houver um atributo com o mesmo nome de um relacionamento. Verificar uma forma de prevenir isto sem prejudicar a performance.
+
+35 - Colocar o "setEnabled" juntamente com o "setVisible" dos MenuItem (várias perspectivas / fragmentos alteram a visibilidade dos itens de menu).
+
+36 - Verificar se no EntityEditingPerspective é possível utilizar o "onPrepareOptionsMenu" ao invés do "configureMenuItems()" (como é feito no EnityListDetailPerspective).
+
+37 - Verificar sobre os "orderInCategory" dos itens de menu utilizados pela EntityEditingPerspective e seus fragmentos.
+
+38 - Verificar sobre o comportamento de esconder o teclado. Por enquanto ele esconder nas seguintes situações, mas talvez fosse interessante esconder apenas se a perspectiva que está sendo aberta não tem um campo focável. 
+		- quando o menu de navegação é aberto;
+		- quando uma perspectiva é iniciada;
+		- quando a aba do EntityEditingPagerFragment é trocada. 
+		
+39 - Mover demais métodos de conversão de enums (tipo SyncStatusConfig -> SyncStatus) para o Utils.
+
+40 - Implementar eventos de alteração de campos de um relacionamento. Por exemplo, o campo "valor" de um item de um pedido. Pode ser necessário saber se um campo específico de um relacionamento foi alterado. Isto poderá ser feito com a EntityEditingPerspective retornando os campos alterados junto com o resultado normal (este tipo de evento só será disparado para perspectivas de edição abertas para um resultado).
+
+41 - Dar mais controle aos listeners de eventos para como e quando o dialogo com as mensagens de erro de um registro em edição será mostrado. Atualmente ele é mostrado apenas se o "onBeforeSaveRecord" ou "onBeforeConfirmEditRecord" retorna false. Seria interessante o IEntityEditingMessageHandler dar estas opções a mais, inclusive a possibilidade de mostrar um dialogo de confirmação, em que o usuário pode escolher continuar ou cancelar, depois de ver as mensanges.
+
+42 - Os TextViews poderiam ter estilos próprios (textApperance) ao invés de usar os do Android diretamente. Por exemplo, o entity_editing_message_list_header_item.xml até declara "bold" diretamente no layout.
+
+43 - Implementar o conceito de "Decorator" nos editores, de forma que o AbstractLabeledFieldEditor seja apenas um Decorator.
+
+44 - Verificar se no futuro o getItemId do ListViewAdapter pode ser utilizado para alguma melhoria na gestão dos itens do adapter.
+		Estudos recentes indicaram que não há uma otimização no uso dos ids para a gestão das views recicladas...
+		Então até isto ser melhorado no Android, não faz muito sentido se preocupar com isto. O correto seria ele 
+		reusar as views de acordo com o id dos registros delas, mas isto não é feito.  
+		
+45 - Criar e usar xml de layout diferente para o EntityListFragment quando o SWIPE_REFRESH_ARGUMENT e o AUTO_REFRESH_ARGUMENT estão "false", pq neste caso não é necessário ter o SwipeRefreshLayout.
+
+46 - Considerar colocar o "swipe to refresh" no fragmento de detalhe também. Entretanto, algumas coisas precisam ser consideradas antes:
+		- os fragmentos de detalhe podem possuir views com scroll e atualmente o SwipeRefreshLayout não faz nenhuma verificação quanto ao scroll das views netas, bisnetas, etc. Ele apenas verifica os scroll da view filha;
+		- atualmente o refresh do registro é feito na Thread de UI, por se tratar de uma opereação leve, mas isto já trava a animação do SwipeRefreshLayout. Então o refresh do registro precisa ser feito em background.
+		- atualmente o refresh de uma associação múltipla de um registor sendo detalhado cria um novo fragmento, dando o efeito de um carregamento "completo" ao invés de um refresh. Teria que ver se é possível alterar este efeito. O ideal seria o fragmento ser substituído só depois que já foi renderizado, já que a animação de refresh será colocada pelo fragmento de detalhe. Desta forma, se não houve alteração nos registros da associação, nada mudaria. Será necessário apensa cuidar para não haver uma "piscada" nesta alteração.
+		
+47 - Verificar locais onde o save() e o delete() do IEntityDAO são utilziados e fazer a verificação de seu retorno, tratando os casos em que seja "false".
+
+---- Depois da migração para Android 5 ----
+
+48 - As transições (animações) entre fragmentos foram desativadas nos seguintes locais para a interface ficar mais fluída com Material Design:
+     	- PerspectiveActivity.startPerspective(PerspectiveInstance, boolean, boolean)
+     	- EntityListDetailPerspective.showList() e .showDetail()
+     O único local que ainda usa este tipo de transição é o menu de navegação ao trocar a perspectiva atual (PerspectiveActivity).
+     No futuro, quando a versão mínima for o Android 5, será possível utilizar a nova API de transições. Ela permite criar transições de forma mais livre, fazendo com que a troca de fragmentos fique fluída o suficiente para justificar a animação.
+
+49 - O DefaultCurrencyMask possui um contorno referente a um problema do "backspace" não funcionar quando o campo editado possui o símbolo de moeda depois do valor. Verificar a descrição feita na própria classe e remover o contorno quando possível.
+
+50 - As imagens que o "LayoutConfigAdapter.setImageViewValue" utiliza para representar valores nulos são fixadas como "redondas", mas isto deveria ser determinado pela máscara, assim como é feito com o valor normal.
+     Para isto, seria necessário talvez fazer com que a camada de dados trabalhe com imagens no formato Drawable (o que demandaria algum trabalho pois os Drawables podem ser simples BitmapDrawables ou outros formatos).
+     Desta forma, a máscara de imagem poderia simplesmente receber um Drawable e retornar outro.
+     Entretatno, outro problema é que o RoundedBitmapDrawable só trabalha a partir de Bitmap, então teria que alterar a forma como o filtro deixa a imagem redonda...
+
+
+
+
+-------- BUGS -------
+
+b2 - A busca por voz nas listas de registro não está funcionando. Foi verificado que é porque o SearchView acaba lançando a Activity do Searchable, mesmo que o SearchView tenha um "OnQueryTextListener" definido (justamente para tratar a busca sem chamar a Activity...).
+	 Aparentemente, não há maneira de alterar este comportamento, então a busca por voz foi desativada por enquanto, removendo a seguinte linha do xml dos searchables:
+	 	android:voiceSearchMode="showVoiceSearchButton|launchRecognizer"
+     Esta questão já foi levantada no StackOverflow, mas sem resposta até o momento: 
+		http://stackoverflow.com/questions/18682164/android-listener-for-voice-search-in-searchview
+		
+	 Apesar de tudo, ainda é possível utilizar a digitação por voz do teclado virtual (botão ao lado esquerdo do espaço). O único problema é que é necessário falar, tocar no microfone para parar a gravação, clicar no ícone de teclado para voltar pro teclado normal e aí sim executar a busca pressionando a lupa.
+	 Se esta método de entrada de texto por voz se tornar realmente utilizado, é possível colocar um botão de "submit" no SearchView para facilitar, fazendo com que seja necessário apenas falar e pressionar ele. Para isto, o seguinte método tem que ser chamado:
+	 	searchView.setSubmitButtonEnabled(true);
+
+-------- RESOLVIDOS -------
+
+b1 - Foi relatado que há um problema na digitação com swipe, em que ele coloca a palavra novamente ao apertar espaço.
+
+-6 - O RoboGuice passa duas vezes pelo "Module.configure" (por exemplo, do PegasoTestModule). Talvez este comportamento n aconteça mais no RoboGuice 3.0, então será interessante testá-lo.
+		- No RoboGuice 3.0 também é possível configurar os modulos pelo AndroidManifest.xml.
+
+-4 - Implementar o "swipe down to refresh" como na app do gmail na perspectiva de lista. Já existe um layout do próprio SDK Android que cuida pelo menos da parte do swipe (SwipeRefreshLayout, mas tem que atualizar o support library).
+
+10 - Verificar sobre colocar o nome da entidade (por exemplo, "Cliente") na config (de forma que esta informação não esteja hardcoded no Módulo).
+12 - Verificar sobre o possível uso do RogoGuice pra injetar Views (usar o @InjectView pra obter as views ao invés de findViewById).
+	- Não é mais possível fazer isto em bibliotecas Android porque os ids gerados no R não são mais final.
+15 - Criar um tipo de ISearchableManager, fazendo com que a lógica de criação disto saia do IPerspectiveManager. O melhor seria isto inclusive ser injetado, assim a perspectiva que quiser usar o manager simplesmente injeta ele. Outro benefício é que a implementação seria escolhido pela aplicação final, que é quem no final das contas tem que declarar as activities fake.
+16 - Implementar suporte a pesquisa na lista de registros (EntityListFragment) em atributos provenientes de associações.
+18 - Implementar lógica nas perspectivas para tratar o "back" de maneira correta levando em conta a "backstack", pois quando uma perspectiva é aberta por outra, um "back" deveria voltar para a perspectiva original. Entretando, se o usuário fez qualquer ação na tela, o back deve voltar esta ação... então a perspectiva teria que saber que o usuário fez ações a partir de sua aberta e que depois que voltar elas, tem que deixar o back ser tratado pelo PerspectiveManager. 
+38 - Verificar sobre o uso de sugestões no teclado dos campos de texto. Isto é essencial para a digitação com swipe, mas prejudicial para quem não usa o swipe.

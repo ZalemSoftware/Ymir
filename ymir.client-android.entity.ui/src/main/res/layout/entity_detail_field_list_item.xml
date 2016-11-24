@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?attr/entityDetailFieldStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="@dimen/entity_detail_fragment_field_list_item_vertical_margin"
+    android:paddingBottom="@dimen/entity_detail_fragment_field_list_item_vertical_margin"
+    android:paddingLeft="@dimen/entity_detail_fragment_field_list_item_horizontal_margin"
+    android:paddingRight="@dimen/entity_detail_fragment_field_list_item_horizontal_margin"
+    android:orientation="horizontal"
+    tools:ignore="RtlHardcoded,RtlSymmetry">
+    
+    <TextView
+        android:id="@+id/entity_detail_field_list_item_label"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="@dimen/entity_detail_fragment_field_label_width"
+        android:layout_height="match_parent"
+        android:layout_marginRight="@dimen/entity_detail_fragment_field_spacing"
+        android:textIsSelectable="true"
+        android:includeFontPadding="false"
+        android:gravity="right" />
+   
+	<TextView
+	    android:id="@+id/entity_detail_field_list_item_value"    	
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:textIsSelectable="true"
+      	android:gravity="left|center_vertical" />
+</LinearLayout>

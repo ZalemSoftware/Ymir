@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Baseado no design_navigation_item_separator -->
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:paddingTop="@dimen/navigation_menu_list_separator_vertical_margin"
+    android:paddingBottom="@dimen/navigation_menu_list_separator_vertical_margin"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?android:listDivider"/>
+</FrameLayout>

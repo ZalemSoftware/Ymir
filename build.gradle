@@ -1,0 +1,46 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:2.1.0'
+        classpath 'com.github.dcendents:android-maven-gradle-plugin:1.3'
+    }
+}
+
+subprojects {
+    group = 'br.com.zalem.ymir'
+    version = '1.0.0'
+
+    ext {
+        versions = [
+            compileSdk: 23,
+            buildTools:  '23.0.1',
+            minSdk: 14
+        ]
+
+        //Bibliotecas comuns utilizadas por mais de um módulo.
+        libs = [
+            jackson: [
+                    'com.fasterxml.jackson.core:jackson-core:2.5.1',
+                    'com.fasterxml.jackson.core:jackson-databind:2.5.1',
+                    'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
+            ],
+            roboguice: 'org.roboguice:roboguice:3.0.1',
+            roboblender: 'org.roboguice:roboblender:3.0.1'
+        ]
+    }
+
+    repositories {
+        jcenter()
+        maven {
+            //Necessário para o EasyImage.
+            url "https://jitpack.io"
+        }
+        maven {
+            //Necessário para utilizar o PreferenceFragment com a estrutura de fragmentos do support library.
+            url "https://raw.github.com/kolavar/android-support-v4-preferencefragment/master/maven-repository/"
+        }
+    }
+}
+

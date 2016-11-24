@@ -1,0 +1,93 @@
+<manifest package="br.com.zalem.ymir.sample.offline"
+          xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools">
+
+    <application
+        android:theme="@style/Theme.Sample.Light"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher"
+        android:allowBackup="false">
+
+        <!-- Determina o Módulo que configura as dependências injetadas. -->
+        <meta-data
+            android:name="roboguice.modules"
+            android:value="br.com.zalem.ymir.sample.offline.SampleOfflineModule" />
+        <!-- Necessário para o RoboGuice referenciar os banco de anotações gerados pelos diferentes módulos, otimizando a injeção de dependências.
+             Se as classes do aplicativo não utilizam injeção de dependências (@Inject), não é necessário declarar o pacote do aplicativo. -->
+        <meta-data
+            android:name="roboguice.annotations.packages"
+            android:value="br.com.zalem.ymir.sample.offline,br.com.zalem.ymir.client.android.entity.ui"/>
+
+        <!-- Activity que gerencia todas as perspectivas (telas) das entidades. -->
+        <activity android:name="br.com.zalem.ymir.client.android.perspective.PerspectiveActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Declara as perspectivas -->
+            <meta-data
+                android:name="br.com.zalem.ymir.client.android.perspective.perspectives"
+                android:resource="@xml/perspectives" />
+            <!-- Configura o menu lateral de navegação -->
+            <meta-data
+                android:name="br.com.zalem.ymir.client.android.perspective.navigation-menu"
+                android:resource="@xml/navigation_menu" />
+        </activity>
+
+
+        <!-- Provedor de termos utilizados nas pesquisas.
+             Desnecessário se a aplicação não suportar pesquisas. -->
+        <provider android:name="br.com.zalem.ymir.client.android.entity.ui.search.EntitySearchSuggestionsProvider"
+                  android:authorities="br.com.zalem.ymir.client.android.entity.ui.search.EntitySearchSuggestionsProvider"
+                  android:exported="false"  />
+        <!-- Declara as informações de pesquisa das entidades. Esta é a única forma que o Android disponibiliza para a obtenção de SearchableInfo.
+             Desnecessário se determinada perspectiva não suportar pesquisa. -->
+        <!--suppress AndroidDomInspection -->
+        <activity android:name=".ExpenseSearchableActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/expense_searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <!--suppress AndroidDomInspection -->
+        <activity android:name=".PlaceSearchableActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/place_searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+        <!--suppress AndroidDomInspection -->
+        <activity android:name=".ProductSearchableActivity">
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/product_searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+        </activity>
+
+
+
+        <!-- Desativa os seguintes services/receivers declarados pelo "ymir.client-android.entity.data-openmobster" pois esta aplicação será totalmente offline.
+             Desnecessário se a aplicação suportar sincronização online de dados. -->
+        <service android:name="org.openmobster.core.mobileCloud.push.StartSync" tools:node="remove" />
+        <receiver android:name="org.openmobster.core.mobileCloud.push.StartSyncBroadcastReceiver" tools:node="remove" />
+        <service android:name="org.openmobster.core.mobileCloud.push.StartNetwork" tools:node="remove" />
+        <receiver android:name="org.openmobster.core.mobileCloud.push.NetworkStartupBroadcastReceiver" tools:node="remove" />
+        <service android:name="org.openmobster.core.mobileCloud.android.module.connection.BackgroundActivatePushSocket" tools:node="remove" />
+        <receiver android:name="org.openmobster.core.mobileCloud.api.ui.framework.push.PushBroadcastReceiver" tools:node="remove" />
+        <receiver android:name="org.openmobster.core.mobileCloud.android.module.connection.ActivatePushSocket" tools:node="remove" />/>
+        <service android:name="org.openmobster.core.mobileCloud.android.module.connection.DeadSocketService" tools:node="remove" />
+        <receiver android:name="org.openmobster.core.mobileCloud.android.module.connection.DeadSocketDetector" tools:node="remove" />
+    </application>
+
+    <!-- Desativa as seguintes permissões declarados pelo "ymir.client-android.entity.data-openmobster" pois esta aplicação será totalmente offline.
+         Desnecessário se a aplicação suportar sincronização online de dados. -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" tools:node="remove" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" tools:node="remove" />
+</manifest>

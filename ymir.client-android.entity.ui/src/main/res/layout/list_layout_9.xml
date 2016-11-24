@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?attr/configLayoutStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:paddingLeft="?configLayoutMarginHorizontal"
+    android:paddingBottom="?configLayoutMarginVertical"
+    tools:ignore="RtlSymmetry,RtlHardcoded">
+    
+	<LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+	    <TextView
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+            android:paddingTop="?configLayoutMarginVertical"
+			android:singleLine="true"
+			android:ellipsize="end"
+			android:tag="TEXT1" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="?configLayoutMarginHorizontal"
+            android:minHeight="?configLayoutMarginVertical">
+            <FrameLayout
+                android:id="@+id/list_layout_record_action_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="?configLayoutMarginVertical"
+                android:paddingBottom="?configLayoutSpacingSmall"
+                android:paddingLeft="?configLayoutSpacingSmall"
+                android:paddingRight="?configLayoutMarginHorizontal"
+                android:clickable="true"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+	<LinearLayout
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:paddingRight="?configLayoutMarginHorizontal"
+	    android:paddingTop="?configLayoutSpacingSmall"
+	    android:orientation="horizontal" >
+	    
+	    <TextView
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+            android:includeFontPadding="false"
+	        android:gravity="left"
+	        android:singleLine="true"
+	        android:ellipsize="end"
+	        android:tag="TEXT2" />
+    
+      	<TextView
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+       	    android:paddingLeft="?configLayoutSpacingSmall"
+	        android:includeFontPadding="false"
+            android:gravity="center"
+	        android:singleLine="true"
+	        android:ellipsize="end"
+	        android:tag="TEXT3" />
+      	
+		<TextView
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+            android:paddingLeft="?configLayoutSpacingSmall"
+	        android:includeFontPadding="false"
+            android:gravity="right"
+	        android:singleLine="true"
+	        android:ellipsize="end"
+	        android:tag="TEXT4" />
+	</LinearLayout>
+
+	<LinearLayout 
+	    android:layout_width="match_parent"
+	    android:layout_height="wrap_content"
+        android:paddingRight="?configLayoutMarginHorizontal"
+        android:paddingTop="?configLayoutSpacingSmall"
+	    android:orientation="horizontal" >
+	    
+	    <TextView
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+	        android:layout_weight="1"
+	        android:gravity="left"
+	        android:singleLine="true"
+	        android:ellipsize="end"
+            android:tag="TEXT5" />
+    
+      	<TextView
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+            android:paddingLeft="?configLayoutSpacingSmall"
+	        android:layout_weight="1"
+			android:gravity="center"
+            android:singleLine="true"
+	        android:ellipsize="end"
+	        android:tag="TEXT6" />
+      	
+		<TextView
+	        android:textAppearance="?android:attr/textAppearanceSmall"
+	        android:layout_width="0dp"
+	        android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:paddingLeft="?configLayoutSpacingSmall"
+			android:gravity="right"
+	        android:singleLine="true"
+	        android:ellipsize="end"
+	        android:tag="TEXT7" />
+	</LinearLayout>
+</LinearLayout>

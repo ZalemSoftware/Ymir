@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--suppress XmlUnboundNsPrefix -->
+<lint>
+    <!-- O suporte a RTL deve ser declarado na aplicação (manifest) que usa esta biblioteca.
+         O ignore foi declarado desta forma ao invés de usar o tools:ignore pois ele não estava funcionando no manifest. -->
+    <issue id="RtlEnabled" severity="ignore" />
+</lint>

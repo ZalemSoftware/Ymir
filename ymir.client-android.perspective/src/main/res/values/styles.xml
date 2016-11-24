@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- Estilos dos componentes do Tema Claro do Ymir. -->
+    <style name="Widget.Ymir.Light" parent="" />
+
+    <style name="Widget.Ymir.Light.Toolbar">
+        <item name="android:background">?colorPrimary</item>
+        <item name="android:theme">@style/ThemeOverlay.Ymir.Dark.Toolbar</item>
+        <item name="popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.NavigationList">
+        <item name="android:background">@android:color/white</item>
+        <item name="android:divider">@null</item>
+    </style>
+</resources>

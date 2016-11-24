@@ -1,0 +1,164 @@
+-5 - Implementar suporte ao mappedBy de associações utilizando um caminho.
+	 Por exemplo, Cliente possui Pedidos que possuem Pagamentos, logo, um Pagamento possui um Pedido que possui um Cliente.
+	 Desta forma, Cliente poderia ter uma associação para Pagamento, utilizando como mappedBy: "pedido", "cliente".
+
+-3 - Considerar a possibilidade de suportar campos virtuais (atributos e relacionamentos) nas entidades. Eles seriam
+armazenados nas instâncias de registros, mas não salvo no banco. Isto seria útil para situações como a de uma entidade
+apontar para outra apenas para manter a rastreabilidade durante a edição (por exemplo, subItem -> item -> pedido) ou
+para referenciar o dono (no caso das entidades internas). 
+Atualmente este tipo de campo acaba sendo considerado como um campo normal, passando pelo contorno que coloca valores
+nulos na base do OpenMobster (MobileBeanEntityManager -> OpenMobsterBugUtils) e até sendo salvo/enviado caso tenha valor definido.
+Se esta melhoria estiver para ser feita, considerar as seguintes questões:
+	- Será mais simples armazenar os valores virtuais depois que o novo cache de registros for feito (atualmente o do OpenMobster é utilizado).
+	- Locais que verificam sobre associações para registros internos. Isto é feito para desconsiderar relacionamentos
+	  feitos apenas para manter a referência para o dono (através do "mappedBy" declarado no relacionamento do dono para
+	  a interna). Depois da melhoria, será necessário apenas verificar se o relacionamento é virtual.
+
+-2 - Há uma limitação no SQLite com o uso do LIKE em palavras com acentos. Ele n consegue ignorar os acentos, fazendo com que, por exemplo, uma busca por "joao" não encontre "joão".
+	 Uma possível solução seria salvar um campo a mais com o texto normalizado (sem acentos) dos campos do tipo texto que possuam caracteres especiais. 
+	 Desta forma, quando a busca for executada, teria que buscar neste outro campo. O problema seria manter estes dois campos e saber quando o SELECT deve usar um ou outro, a não ser que o campo seja gerado sempre, para todo campo do tipo texto, o que seria ruim pq um campo a mais é um JOIN a mais na query.
+	 Talvez possa ser tentado algo como: "... WHERE ('0'.name = 'campoTexto' and '0'.value LIKE '%joao%') OR ('0'.name = '*campoTexto*' and '0'.value LIKE '%joao%')", só teria que ver como ficaria as linhas de resultados (pode repetir as linhas se houver tanto o campo normal como o normalizado.
+
+-1.1 - O MobileBeanQueryBuilder e o MobileBeanEntityRecordCursor podem ser melhorado para a obtenção de registros inteiros.
+	   É só questão de fazê-los selecionarem o caminho para o arquivo JSON com os dados diretamente ao invés de pegar o ID que dai vai ser usado pelo OpenMobster para buscar o arquivo...
+	   Para isto, terá que ser posto uma abertura no Database/DefaultCRUD do OpenMobster para retornar um Record a partir de um caminho pro arquivo JSON (o código que faz isto dentro do DefaultCRUD está duplicado em vários métoods -.-) 
+
+-1 - Há um problema de performance nas obtenções de:
+	1. entidades relacionadas (getRelationshipValue e Array);
+	2. imagens (getImageValue); -> Corrigido com o LRUImageCache.
+       fazendo com que a criação das Views fique lenta. Isto é causado por:
+            1. o OpenMobster tem um grande overhead na hora de simplesmente obter um registro do seu própro cache;
+            2. as imagens estão codificadas em base 64, então cada vez que se obtém ela tem que fazer a conversão.
+Uma solução seria armazenar estes valores no próprio MobileBeanEntityRecord, mas teria que verificar como fica a questão
+da memória, ainda mais pra entidades que possum relações, pois todas elas teriam que ser carregadas tbm.
+O principal objetivo seria o de tirar toda este overhead que está ficando na Thread de UI e jogar tudo pra ser feito
+na AsyncTask, em background.
+O ideal mesmo seria já carregar todos os dados da entidade no MobileBeanEntityRecord, usando o MobileBean apenas para
+salvar. O problema ainda continuaria sendo a memória...
+
+-0.1 - Verificar sobre o "delete com sync false". Ainda não é suportado mas os métodos "saveTargetRelatedRecords" e "saveSourceRelatedNormalRecords" do MobileBeanEntityDAO precisam dele, se não podem ser enviadas exclusões para o servidor de um registro que só foi salvo local!
+
+0 - Verificacar sobre as exceções não checadas lançadas pelos componentes de acesso a dados (MobileBeanEntityRecord, por exemplo). Estas exceções podem interromper o todo o aplicativo quando poderia apenas interromper parte dele. O melhor seria que fossem exceções checadas que dai as telas pudessem tratar.
+	- Talvez até o TODO #3 for resolvido, o problema que pode ocorrer na busca por uma entidade que ainda não foi bootada tbm poderia ter uma exceção checada (MobileBeanEntityRecord.findEntityRecord). 
+
+4 - Definir maneira padrão para os logs de erros que podem acontecer na interação com o OpenMobster.
+
+5 - Se a API do OpenMobster permitir algum dia, fazer esquema para cancelar a query no meio de sua execução.
+
+7 - Verificar sobre um tratamento para quando um dispositivo envia um Pedido e o ERP está fora do ar. O Channel vai receber o Pedido, mas não vai ter pra onde mandar... o ideal seria salvar localmente, mas isto pode se tornar complicado. Verificar se não há uma forma de dizer ao dispositivo que o Pedido não pdo ser salvo e que ele deve tentar enviar novamente mais tarde.
+
+8 - Verificar sobre o uso do "MobileBean.readList" no MobileBeanEntityRecord. Este método nunca retorna "null". Seria interessante haver distinção entre um valor de array não definido ou um array vazio.
+
+9 - Quando possível, verificar sobre a possibilidade das configurações dos campos das entidades virem diretamente das classes que representam as entidades (MobileBean) através de reflexão, anotações, etc. A idéia é que apenas as configurações dos campos viessem dali, o resto das configurações de layout continuariam vindo de JSON. Uma possível abordagem seria, dada uma determinada empresa, haver um projeto que contém apenas as classes das entidades e tanto o projeto de cliente android quanto o de integração específicos daquela empresa teriam uma dependÊncia para o projeto de entidades. Desta forma, a parte do client poderia até contar como uma API para para instanciar a entidade dado um IEntityRecord, facilitando talvez algumas regras de negócio, etc.
+
+10 - Implementar verificações de tipos de campos e relacionamentos na definição de valores do MobileBeanEntityRecord. Atualmente tem apenas nos "gets". Ajustar tbm o javadoc dos "sets" do IEntityRecord, comentando a possibilidade de exceção caso a propriedade passada não seja do tipo correto do "set" sendo chamado.
+
+12 - Verificar se o CompositionCacheEntry ainda é necessário (pode-se usar uma list diretamente, que só vai ter um registro caso seja um relacionamento individual).
+
+13 - Verificar sobre o "delete(false)" do MobileBeanEntityDAO. Talvez nem seja mais interessante esta possibilidade, pois deletar um registro apenas localmente é algo que pode dar problemas (como o registro será encontrado depois?).
+
+14 - Considerar a possibilidade do "flushCompositionsCache" do MobileBeanEntityRecord ser feito diretamente pelo "save" do MobileBeanEntityDAO.
+	   
+	   
+------- Internal Entity -------	   
+15 - Os campos dos registros internos já começam dirty pois seus dados são setados em registros novos. Por enquanto, a
+única situação em que isto afeta é na verificação que não pode ser feita no "MobileBeanEntityManager.getEntityDAO(RelationshipArrayView)".
+O framework não passa por esta situação pois acaba utilizando um MemoryEntityDAO para registros novos, mas no futuro algum
+outro código pode fazê-lo. De qualquer forma, está errado e precisa ser corrigido.
+	- Limpar os campos sujos é fácil, o problema é como lidar com o relationshipsBuffer. Ele é utilizado para armazenar os registros
+	internos relacionados, mas acaba indicando sujeira por estar com estes registros. Não é possível simplesmente fazer os relacionamentos
+	usarem o dirtyFields pois ele influencia no "MobileBeanEntityDAO.save()".
+
+16 - Adicionar suporte a seleção de registros internos (query) sem depender de um RelationshipArrayView. Para isto, teria que receber
+a entidade dona e o caminho até a entidade interna. Desta forma, seria possível selecionar o id do registro dono e o índice do
+registro interno, o que será usado para a obtenção dos registros posteriormente no cursor.
+	- Com isto, seria possível suportar o uso de subselects em queries para entidades internas também. Só teria que ver
+	certinho sobre o filtro que o subselect irá aplicar, pois teria que ser no id do registro dono e no índice do registro interno.
+	
+17 - Há uma limitação no InternalMobileBeanEntityRecordCursor. Os registros internos retornados por ele não respeitam a regra
+do "mappedBy" para entidades internas, ou seja, não trazem os registros donos nas associações configuradas pelo "mappedBy" do dono.
+Se isto for necessário, pode ser feito guardando o caminho do registro dono para o interno (ownerPath) através de objetos 
+ao invés de uma String ("/items[0]/subitem/xpto"). Desta forma, será possível determinar facilmente o caminho até os
+registros donos internos e obtê-los do dono real.
+
+19 - Verificar a possibilidade de implementar o refresh() para registros internos. Atualmente nada é feito, como se o registro fosse novo.
+
+20 - No RelationshipArrayViewDAO, o "checkRecordOrigin" não funciona para registros internos pois ele se baseia no conceito do
+registro ter um id ou dele estar no cache do registro base (no caso do relacionamento ter sido alterado). A verificação
+de registro interno tem que ser feita de outra forma. Como isto se trata de uma mera validação para questões de organização e
+não de funcionalidade e os métodos que usam o "checkRecordOrigin" são raramente chamados, esta tarefa tem prioridade baixíssima.
+Talvez algum dia um estagiário ocioso possa fazer isto.
+	   
+
+-------- RESOLVIDOS -------
+-4 - Criar um método de inicialização do DeviceContainer do OpenMobster que não inicie os serviços de sincronização/rede, pois estes não são necessários em um cenário offline.
+    - Teria que verificar o impacto disso em métodos como o "MobileBean.save", que chama um serviço de sincronização para enviar o registro.
+1 - As queries são case sensitve, ou seja, buscar por "abc" não vai trazer uma entidade com um valor de "Abc".
+2 - Verificar a maneira como o OpenMobster faz os filtros nos dados (queries) e se for percebido que a implementação terá um grande impacto na performance das filtragens, validar a possibilidade de criar uma API própria de filtros nos dados do OpenMobster.
+3- De acordo com o post abaixo, a API do OpenMobster não sabe dizer quando que o bootup terminou. 
+  Por isto, será necessário fazer um contorno. A idéia inicial é a de enviar um "objeto de controle" do servidor para o dispositivo.
+  Ele será o último objeto enviado, então será possível para o dispositivo identificar quando o bootup terminou.
+	  https://groups.google.com/forum/#!topic/openmobster-users/9qiZGz631BE
+6 - Buscar uma maneira de lançar o IllegalArgumentoException nos "get" e "set" do MobileBeanEntityRecord quando a propriedade não existe. Atualmente, o OpenMobster não faz isto e não dispõe maneira de fazê-lo.
+11 - Quando o AndroidBugUtils estiver em um projeto comum, trocar pela chamada do método que corrige este problema:
+	- os usos do "applyWorkaroundForBug5973_write" e "applyWorkaroundForBug5973_read" da classe MobileBeanSelectQuery.
+	- os usos de "readParcelable" feitos passando o ClassLoader pelo "applyWorkaroundForParcelableDefaultClassloaderBug" na classe MobileBeanEntityDAO.
+
+
+
+-== DESCOBERTAS OPENMOBSTER ==-
+1 - Balanceamento de dados:
+	O OpenMobster possui algumas configurações que definem o balanceamento do envio dos dados (em ambas as direções).
+	Ou seja, é possível definir quantos registros são enviados no máximo e qual o tamanho máximo de cada registro enviado
+	(sendo dividido caso atinja este tamanho). Para isto, existem duas configurações no Session respectivamente: SnapshotSize e MaxClientSize.
+	O SnapshotSize aparentemente só funciona na sincronização normal (EnterNormalSync), não na de Streaming (lazy sync, EnterStreamSync).
+	O ideal seria alterar um pouco o comportamento do OpenMobster, para poder balancear o número máximo de dados a partir
+	do tamanho do pacote todo e não o número de registros ou o tamanho de um registro só. Desta forma, ele enviaria os
+	dados em pacotes separados num tamanho máximo, facilitando as comunicações.
+	    - Por enquanto, o SnapshotSize foi reduzido de 1000 para 100, tanto no client como no server.
+
+2 - Lazy sync:
+	O OpenMobster possui suporte ao envio de dados tardios através da interface MobileBeanStreamable. Atualmente,
+	os trechos de código que utilizavam esta interface estão comentados (ServerSyncEngineImpl), então teria que testar
+	se isto realmente funciona.
+	Se funciona, poderia ser utilizado para enviar imagens dos dados apenas depois, priorizando a sincronização dos dados
+	que importam. O ponto ruim é que na sincronização tardia, vão todos os dados novamente e não apenas os dados pesados.
+	Ou seja, teria realmente que avaliar se é um mecanismo que vale a pena usar. 
+	
+3 - Synchronous Sync
+	O MobileBean.synchronousSave faz a sincronização do registro de forma síncrona, ou seja, trava a Thread até haver
+	uma resposta positiva do servidor. Isto pode ser utilizado para dispor a funcionalidade de envio síncrono de objetos,
+	para os casos em que o usuário precisa de uma resposta na hora sobre o envio com sucesso.
+	Só é necessário verificar se na finalização do Synchronous Sync o objeto já vem atualizado com qualquer alteração que sofreu
+	no servidor.
+	
+4 - Serviços (RPC):
+	O OpenMobster possui suporte à chamada de serviços no servidor a partir do client, através do MobileService. É uma
+	chamada síncrona isto pode ser usado no futuro para regras de negócio online ou outro tipo de comunicação direta
+	com o servidor.
+	
+5 - Autenticação (online):
+	O OpenMobster faz a autenticação baseado no serviço AgentProvisioner, que acaba registrando novos usuários e associando-os
+	ao dispositivo. O problema é que ele não possui um registro prévio dos usuários permitidos, fazendo com que registre
+	qualquer um que tente se conectar. A segurança em si acontece depois que o dispositivo já está registrado, pois aí sim
+	ele valida se o usuário associado com o dispositivo foi o mesmo digitado. Talvez seria interessante modificar este comportamento
+	para torná-lo mais seguro e então possibilitando o uso deste mecanismo de autenticação na aplicação.
+	
+	Também há a possibilidade de definir um AuthPlugin através do PluginManager. Talvez seja mais simples utilizar um
+	deste ao invés de modificar o comportamento do serviço. Aparentemente, ele valida a autenticação no AuthPlugin
+	antes de prosseguir para o registro. Ou seja, seria possível validar a autenticação no ERP, por exemplo.
+	Só é necessário tomar cuidado pois se o a autenticação do ERP permitir a alteração de senha, o usuário conseguirá
+	passar pelo AuthPlugin mas depois falhará na verificação do usuário do OpenMobster.
+	Existem formas de redefinir o passwsord pelo Provisioner.resetPassword e o serviço ResetPasswordCommand que usa o Provisioner.
+	
+6 - Autenticação (offline)
+	O OpenMobster armazena na configuração local um autenticaçãoHash (Configuration.getInstance(context).getAuthenticationHash()),
+	o qual é setado depois de uma autenticação online com sucesso. Sendo assim, ele poderia ser utilizado para fazer
+	a autenticação offline. Só teria que utilizar a mesma forma de geração de hash que o servidor faz para comparar os 
+	hashes (o Provisioner faz isto em vários lugares, chamando o método Utilities.generateOneWayHash).
+	Só teria que verificar sobre o tempo que este hash vale... atualmente parece que ele vale pra sempre, então teria
+	que implementar algo para saber o momento em que a última autenticação online foi feita com suecsso.
+
+7 - Tempo de verificação de alterações nos dados do backend:
+	É possível definir o tempo em que os channels sofrem a verificação por alterações através da própria annotation
+	@ChannelInfo, usando a propriedade updateCheckInterval. O padrão é 20 segundos. 

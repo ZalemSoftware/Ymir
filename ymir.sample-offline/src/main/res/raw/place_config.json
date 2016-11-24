@@ -1,0 +1,166 @@
+{
+	"name": "Place",
+    "displayName": {
+        "singular": "Local",
+        "plural": "Locais"
+    },
+
+	"fieldsDefaults": [{
+		"name": "name",
+		"label": "Nome"
+	}, {
+		"name": "phone",
+		"label": "Telefone"
+	}, {
+		"name": "email",
+		"label": "E-mail"
+	}, {
+        "name": "picture",
+        "label": "Foto",
+        "mask": "IMAGE_CIRCULAR",
+        "surrogateAttribute": "name"
+    }, {
+		"name": "observations",
+		"label": "Observações"
+	}, {
+		"name": "street",
+		"label": "Rua"
+	}, {
+		"name": "streetNumber",
+		"label": "Número"
+	}, {
+		"name": "neighborhood",
+		"label": "Bairro"
+	}, {
+		"name": "city",
+		"label": "Cidade"
+	}, {
+		"name": "state",
+		"label": "Estado"
+	}, {
+		"name": "postalCode",
+		"label": "CEP"
+	}, {
+		"name": "fullAddress",
+		"label": "Endereço"
+	}],
+
+	"list": {
+		"layout": {
+			"type": "LIST_LAYOUT_2",
+			"fields": [{
+                "attribute": "picture",
+                "layoutField": "IMAGE1"
+            }, {
+				"attribute": "name",
+				"layoutField": "TEXT1"
+			}, {
+				"attribute": "phone",
+				"layoutField": "TEXT2"
+			}]
+		},
+		"order": {
+			"fields": [{
+				"attribute": "name"
+			}]
+		}
+	},
+
+	"detail": {
+		"tabs": [{
+			"title": "Detalhes",
+			"header": {
+				"type": "DETAIL_LAYOUT_2",
+				"fields": [{
+                    "attribute": "picture",
+                    "layoutField": "IMAGE1"
+                }, {
+					"attribute": "name",
+					"layoutField": "TEXT1"
+				}, {
+					"attribute": "phone",
+					"layoutField": "TEXT2"
+				}]
+			},
+			"fields": [{
+				"attribute": "email"
+			}, {
+				"attribute": "fullAddress"
+			}, {
+				"attribute": "observations"
+			}]
+		}, {
+			"title": "Gastos",
+			"fields": [{
+				"relationship": "expenses",
+				"listConfig": {
+					"layout": {
+                        "type": "LIST_LAYOUT_3",
+                        "fields": [{
+                            "attribute": ["product", "picture"],
+                            "layoutField": "IMAGE1"
+                        }, {
+                            "attribute": ["product", "name"],
+                            "layoutField": "TEXT1"
+                        }, {
+                            "attribute": "date",
+                            "layoutField": "TEXT2"
+                        }, {
+                            "attribute": "value",
+                            "layoutField": "TEXT3"
+                        }]
+					}
+				}
+			}]
+		}]
+	},
+
+	"editing": {
+		"local": {
+			"canCreate": true,
+			"canUpdate": true,
+			"canDelete": true
+		},
+		"tabs": [{
+			"title": "Geral",
+			"fields": [{
+				"attribute": "name",
+				"inputType": "TYPE_TEXT_FLAG_CAP_WORDS"
+			}, {
+				"attribute": "phone",
+				"inputType": "TYPE_CLASS_PHONE"
+			}, {
+				"attribute": "email",
+				"inputType": "TYPE_TEXT_VARIATION_EMAIL_ADDRESS"
+			}, {
+                "attribute": "picture"
+			}, {
+				"attribute": "observations",
+				"inputType": ["TYPE_TEXT_FLAG_MULTI_LINE", "TYPE_TEXT_FLAG_CAP_SENTENCES"]
+			}]
+		}, {
+			"title": "Endereço",
+			"fields": [{
+                "attribute": "fullAddress",
+                "hidden": true
+            }, {
+				"attribute": "street",
+				"inputType": "TYPE_TEXT_FLAG_CAP_WORDS"
+			}, {
+				"attribute": "streetNumber"
+			}, {
+				"attribute": "neighborhood",
+				"inputType": "TYPE_TEXT_FLAG_CAP_WORDS"
+			}, {
+				"attribute": "city",
+				"inputType": "TYPE_TEXT_FLAG_CAP_WORDS"
+			}, {
+				"attribute": "state",
+				"inputType": "TYPE_TEXT_FLAG_CAP_WORDS"
+			}, {
+				"attribute": "postalCode",
+				"inputType": "TYPE_CLASS_PHONE"
+			}]
+		}]
+	}
+}

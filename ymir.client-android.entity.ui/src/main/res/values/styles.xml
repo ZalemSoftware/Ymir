@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+    <style name="Widget.Ymir" parent="" />
+
+    <style name="Widget.Ymir.Light.SwipeRefreshLayout">
+        <item name="color1">?colorPrimary</item>
+        <item name="color2">?colorAccent</item>
+        <item name="color3">?colorPrimary</item>
+        <item name="color4">?colorAccent</item>
+    </style>
+
+    <style name="Widget.Ymir.DialogBasedFieldEditor" parent="">
+        <item name="android:background">@drawable/entity_field_editor_dialog_based_background</item>
+        <item name="tintAPI21">true</item>
+    </style>
+
+    <style name="Widget.Ymir.FieldEditorLabel">
+        <item name="android:textAppearance">?android:textAppearanceSmall</item>
+        <item name="android:textSize">12sp</item>
+    </style>
+
+
+    <!-- Estilos dos componentes do Tema Claro do Ymir. -->
+    <style name="Widget.Ymir.Light.Toolbar.Entity">
+        <item name="android:theme">@style/ThemeOverlay.Ymir.Dark.Toolbar.Entity</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.ConfigLayout" />
+    <style name="Widget.Ymir.Light.ConfigLayout.Flat">
+        <item name="android:background">@drawable/selectable_item_background_white_light</item>
+    </style>
+    <style name="Widget.Ymir.Light.ConfigLayout.Card">
+        <item name="android:background">@drawable/card_background_light</item>
+    </style>
+    <style name="Widget.Ymir.Light.ListLayoutRecordActionIcon">
+        <item name="android:background">?android:selectableItemBackground</item>
+        <item name="android:tint">?listLayoutRecordActionIconColor</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.EntityList">
+        <item name="android:theme">@style/ThemeOverlay.Ymir.Light.ConfigLayout.Flat</item>
+        <item name="divider">?android:listDivider</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.EntityDetailHeader">
+        <item name="android:theme">@style/ThemeOverlay.Ymir.Light.ConfigLayout.Card.Full</item>
+    </style>
+    <style name="Widget.Ymir.Light.EntityDetailField">
+        <item name="android:background">@android:color/white</item>
+    </style>
+
+
+    <style name="Widget.Ymir.Light.EntityEditingError">
+        <item name="android:background">@drawable/entity_editing_error_background_light</item>
+        <item name="android:textColor">?colorError</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.EntityEditingFields">
+        <item name="android:paddingTop">?entityEditingFieldsPaddingTop</item>
+        <item name="android:paddingBottom">?entityEditingFieldsPaddingBottom</item>
+        <item name="android:paddingLeft">?entityEditingFieldsPaddingLeft</item>
+        <item name="android:paddingRight">?entityEditingFieldsPaddingRight</item>
+        <item name="android:clipToPadding">false</item>
+    </style>
+
+    <style name="Widget.Ymir.FieldEditorLabel.Light">
+		<item name="android:textColor">@drawable/entity_field_editor_label_color_light</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.TextFieldEditor">
+        <item name="android:background">@drawable/entity_field_editor_text_background_light</item>
+		<item name="android:textColor">@drawable/entity_field_editor_text_color_light</item>
+        <item name="android:textColorHint">@drawable/entity_field_editor_hint_color_light</item>
+        <item name="tintAPI21">true</item>
+    </style>
+
+    <style name="Widget.Ymir.DialogBasedFieldEditor.Light">
+		<item name="android:textColor">@drawable/entity_field_editor_text_color_light</item>
+        <item name="android:textColorHint">@drawable/entity_field_editor_hint_color_light</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.BooleanFieldEditor">
+		<item name="android:button">@drawable/entity_field_editor_boolean_button_light</item>
+		<item name="android:textColorHint">@drawable/entity_field_editor_hint_color_light</item>
+		<item name="tintAPI21">true</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.ImageFieldEditor">
+        <item name="android:background">?android:selectableItemBackground</item>
+    </style>
+    <style name="Widget.Ymir.Light.ImageFieldEditor.Null">
+        <item name="android:tint">?listLayoutRecordActionIconColor</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.SingleRelationshipFieldEditorHint">
+		<item name="android:textColorHint">@drawable/entity_field_editor_hint_color_light</item>
+    </style>
+    <style name="Widget.Ymir.Light.SingleRelationshipFieldEditor">
+		<item name="android:foreground">?android:attr/selectableItemBackground</item>
+		<item name="android:theme">@style/ThemeOverlay.Ymir.Light.ConfigLayout.Card</item>
+    </style>
+
+    <style name="Widget.Ymir.Light.MultipleRelationshipFieldEditor" parent="Widget.Ymir.Light.EntityList">
+        <item name="android:theme">@style/ThemeOverlay.Ymir.Light.MultipleRelationshipFieldEditorItem.Flat</item>
+    </style>
+
+
+    <!-- Estilos dos componentes do Tema Escuro do Ymir. -->
+    <style name="Widget.Ymir.Dark" parent="" />
+
+    <style name="Widget.Ymir.FieldEditorLabel.Dark">
+        <item name="android:textColor">@drawable/entity_field_editor_label_color_dark</item>
+    </style>
+
+    <style name="Widget.Ymir.DialogBasedFieldEditor.Dark">
+        <item name="android:textColor">@drawable/entity_field_editor_text_color_dark</item>
+        <item name="android:textColorHint">@drawable/entity_field_editor_hint_color_dark</item>
+    </style>
+</resources>

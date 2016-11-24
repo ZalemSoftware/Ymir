@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    tools:ignore="RtlHardcoded,RtlSymmetry">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+    	android:layout_height="wrap_content"
+        android:orientation="horizontal" >
+        
+	    <TextView
+			android:textAppearance="?android:attr/textAppearanceMedium"
+			android:layout_width="0dp"
+			android:layout_height="wrap_content"
+			android:layout_weight="1"
+            android:paddingTop="?configLayoutMarginVertical"
+			android:gravity="center_vertical"
+			android:lines="2"
+			android:ellipsize="end"
+			android:tag="TEXT1" />
+
+        <FrameLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:minWidth="?configLayoutMarginHorizontal"
+            android:minHeight="?configLayoutMarginVertical">
+            <FrameLayout
+                android:id="@+id/list_layout_record_action_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="?configLayoutMarginVertical"
+                android:paddingBottom="?configLayoutSpacingSmall"
+                android:paddingLeft="?configLayoutSpacingSmall"
+                android:paddingRight="?configLayoutMarginHorizontal"
+                android:clickable="true"
+                android:visibility="gone" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <TextView
+        android:textAppearance="?android:attr/textAppearanceSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:paddingRight="?configLayoutMarginHorizontal"
+        android:singleLine="true"
+        android:ellipsize="end"
+        android:tag="TEXT2" />
+</LinearLayout>

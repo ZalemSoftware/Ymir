@@ -1,0 +1,107 @@
+{
+	"name": "Expense",
+    "displayName": {
+        "singular": "Gasto",
+        "plural": "Gastos"
+    },
+
+	"fieldsDefaults": [{
+		"name": "value",
+		"label": "Valor",
+        "mask": "CURRENCY_DEFAULT"
+	}, {
+		"name": "place",
+		"label": "Local"
+	}, {
+		"name": "date",
+		"label": "Data"
+	}, {
+		"name": "product",
+		"label": "Produto/Serviço"
+	}, {
+		"name": "observations",
+		"label": "Observações"
+	}],
+
+	"list": {
+		"layout": {
+			"type": "LIST_LAYOUT_3",
+			"fields": [{
+                "attribute": ["product", "picture"],
+                "layoutField": "IMAGE1"
+            }, {
+				"attribute": ["product", "name"],
+				"layoutField": "TEXT1"
+			}, {
+				"attribute": "date",
+				"layoutField": "TEXT2"
+			}, {
+				"attribute": "value",
+				"layoutField": "TEXT3"
+			}]
+		},
+		"order": {
+			"fields": [{
+				"attribute": "date",
+				"asc": false
+			}]
+		}
+	},
+
+	"detail": {
+        "header": {
+            "type": "DETAIL_LAYOUT_6",
+            "fields": [{
+                "attribute": ["product", "picture"],
+                "layoutField": "IMAGE1"
+            }, {
+                "attribute": ["product", "name"],
+                "layoutField": "TEXT1"
+            }, {
+                "attribute": "value",
+                "layoutField": "TEXT2"
+            }]
+        },
+        "fields": [{
+            "attribute": "date"
+        }, {
+            "attribute": ["place", "name"]
+        }, {
+            "attribute": "observations"
+        }]
+	},
+
+	"editing": {
+		"local": {
+			"canCreate": true,
+			"canUpdate": false,
+			"canDelete": true
+		},
+        "tabs": [{
+            "title": "Valores",
+            "fields": [{
+                "relationship": "product"
+            }, {
+                "virtualAttribute": {
+                    "name": "vQuantity",
+                    "type": "DECIMAL"
+                },
+                "label": "Quantidade",
+                "incremental": 1
+            }, {
+                "attribute": "value",
+                "editable": false
+            }]
+        }, {
+            "title": "Detalhes",
+            "fields": [{
+                "relationship": "place"
+            }, {
+                "attribute": "date"
+            }, {
+                "attribute": "observations",
+                "inputType": ["TYPE_TEXT_FLAG_MULTI_LINE", "TYPE_TEXT_FLAG_CAP_SENTENCES"]
+            }]
+        }]
+	}
+}

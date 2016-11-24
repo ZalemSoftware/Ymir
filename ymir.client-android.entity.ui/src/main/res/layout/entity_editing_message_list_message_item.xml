@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:paddingTop="@dimen/entity_editing_message_list_message_item_top_margin"
+    tools:ignore="UseCompoundDrawables" >
+    
+	<ImageView
+        android:id="@+id/entity_editing_message_list_message_item_icon"
+		android:layout_width="@dimen/entity_editing_message_list_message_item_icon_size"
+		android:layout_height="@dimen/entity_editing_message_list_message_item_icon_size"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/entity_editing_message_list_message_item_text"
+        android:textAppearance="?android:attr/textAppearanceSmall"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+    	android:paddingTop="@dimen/entity_editing_message_list_message_item_text_top_margin"
+    	android:paddingLeft="@dimen/entity_editing_message_list_message_item_text_left_margin"
+    	android:textIsSelectable="true"
+        tools:ignore="RtlHardcoded,RtlSymmetry"/>
+</LinearLayout>

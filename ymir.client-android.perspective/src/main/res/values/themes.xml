@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tema claro do componente de perspectivas do Ymir -->
+    <style name="Theme.Ymir.Light.Perspective" parent="Theme.Ymir.Light">
+        <item name="perspectiveToolbarStyle">@style/Widget.Ymir.Light.Toolbar</item>
+        <item name="perspectiveFABMarginEnd">@dimen/perspective_fab_margin_end</item>
+        <item name="perspectiveFABMarginBottom">@dimen/perspective_fab_margin_bottom</item>
+        <item name="navigationMenuListStyle">@style/Widget.Ymir.Light.NavigationList</item>
+
+    </style>
+
+    <style name="ThemeOverlay.Ymir.Dark.Toolbar" parent="ThemeOverlay.AppCompat.Dark.ActionBar">
+        <!-- Necessário para que as sugestões de pesquisa fique com a cor clara -->
+        <item name="android:colorBackground">@color/background_material_light</item>
+        <item name="textAppearanceSearchResultTitle">@style/TextAppearance.Ymir.Light.SearchResult.Title</item>
+
+        <!-- Necessário para que o actionMode fique no tema claro. -->
+        <item name="actionBarTheme">@style/ThemeOverlay.AppCompat.Light</item>
+    </style>
+    <style name="TextAppearance.Ymir.Light.SearchResult.Title" parent="TextAppearance.AppCompat.SearchResult.Title">
+        <item name="android:textColor">?android:textColorPrimaryInverse</item>
+    </style>
+</resources>

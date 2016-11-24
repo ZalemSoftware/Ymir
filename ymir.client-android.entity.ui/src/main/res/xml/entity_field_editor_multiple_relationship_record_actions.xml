@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ymirMenu xmlns:ymir="http://schemas.android.com/apk/res-auto">
+	<item
+        ymir:id="@+id/record_action_remove"
+        ymir:title="@string/action_remove"
+        ymir:icon="@drawable/ic_record_action_remove" />
+</ymirMenu>

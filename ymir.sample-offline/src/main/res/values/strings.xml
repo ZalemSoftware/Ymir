@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Registro de gastos</string>
+
+    <string name="expense_list_perspective_title">Gastos</string>
+    <string name="place_list_perspective_title">Locais</string>
+    <string name="product_list_perspective_title">Produtos e Serviços</string>
+    <string name="expense_editing_perspective_title">Cadastro de Gasto</string>
+    <string name="place_editing_perspective_title">Cadastro de Local</string>
+    <string name="product_editing_perspective_title">Cadastro de Produto/Serviço</string>
+    <string name="place_selection_perspective_title">Selecionar Local</string>
+    <string name="product_selection_perspective_title">Selecionar Produto</string>
+
+    <string name="record_validation_not_null">Deve ser definido</string>
+    <string name="record_validation_not_empty">Ao menos um item deve ser definido</string>
+    <string name="record_validation_positive">Deve ser maior que zero</string>
+    <string name="expense_editing_no_product_place">Ainda não existem produtos/serviços cadastrados. Por favor, cadastre-os em sua própria tela ou através da seleção.</string>
+    <string name="expense_list_total">Total</string>
+    <string name="action_create_expense">Novo gasto</string>
+</resources>

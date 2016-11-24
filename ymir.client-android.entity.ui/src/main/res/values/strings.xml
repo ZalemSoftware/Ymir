@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="loading_essential_data">Loading essential data</string>
+    <string name="no_data">No data to show</string>
+    <string name="unavailable_action">Unavailable action, please wait.</string>
+    <string name="operation_denied">Operation denied</string>
+    <string name="deletion_denied">Deletion denied</string>
+    <string name="null_text_value" translatable="false"/>
+
+    <string name="record_saving_format">Saving %s…</string>
+    <string name="record_saving_sync_format">Preparing %s for sending…</string>
+    <string name="record_saved_format">%s saved</string>
+    <string name="record_saved_sync_format">Sending %s</string>
+    <string name="record_saved_error_format">Unable to save the %s</string>
+    <string name="record_deleted_format">%s deleted</string>
+
+    <string name="record_deletion_confirmation">The data from the %s will be lost.</string>
+    <string name="record_deletion_confirmation_positive">Delete</string>
+    <string name="record_deletion_relationship_violation_format">There are %1$s that point to this %2$s. Please, delete them first.</string>
+
+    <string name="entity_editing_automatic_global_error_empty">The operation could not be completed</string>
+    <string name="entity_editing_automatic_global_error_format_singular">Correct the following field: %s</string>
+    <string name="entity_editing_automatic_global_error_format_plural">Correct the following fields: %s</string>
+    <string name="entity_editing_image_selection_error">The image could not be loaded</string>
+    <string name="entity_editing_image_selection_error_msg">Please try again or contact the support.</string>
+
+
+    <string name="action_search">Search</string>
+    <string name="action_select">Select</string>
+    <string name="action_add">Add</string>
+    <string name="action_save">Save</string>
+    <string name="action_send">Send</string>
+    <string name="action_confirm">Confirm</string>
+    <string name="action_edit">Edit</string>
+    <string name="action_delete">Delete</string>
+    <string name="action_remove">Remove</string>
+    <string name="action_detail">Summarize</string>
+    <string name="action_duplicate">Duplicate</string>
+    <string name="record_action_detail">Detail</string>
+
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="word_list_separator">", "</string>
+    <string name="word_list_last_separator">" and "</string>
+
+    <!-- Strings do EntityEditingMessageListDialogFragment, que logo deve ser movido para um projeto de implementações antigas -->
+    <string name="entity_editing_message_group_multiple_relationship_record_detail_format">Record %d</string>
+    <string name="entity_editing_message_list_dialog_message">Messages of the fields:</string>
+    <string name="entity_editing_message_list_dialog_message_empty">There is no messages in the fields.</string>
+
+    <!-- Strings do uCrop, utilizado na seleção de imagens na edição de registro -->
+    <string name="ucrop_label_edit_photo" tools:override="true">Crop image</string>
+</resources>

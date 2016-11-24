@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.AppCompatLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="?textFieldEditorStyle"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:descendantFocusability="afterDescendants"
+    android:addStatesFromChildren="true">
+
+    <ImageButton
+        android:id="@+id/entity_field_editor_number_decrementbutton"
+        android:background="?android:selectableItemBackground"
+        android:layout_width="@dimen/entity_field_editor_number_button_width"
+        android:layout_height="@dimen/entity_field_editor_number_button_height"
+        android:layout_marginRight="@dimen/entity_field_editor_number_button_horizontal_margin"
+        android:src="@drawable/ic_field_editor_number_decrement"
+        tools:ignore="ContentDescription,RtlHardcoded"/>
+
+    <EditText xmlns:android="http://schemas.android.com/apk/res/android"
+        style="?textFieldEditorStyle"
+        android:id="@+id/entity_field_editor_number_edittext"
+        android:background="@null"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:paddingBottom="@dimen/entity_field_editor_number_edit_bottom_margin"
+        android:singleLine="true"
+        android:includeFontPadding="false"
+        android:gravity="center"
+        tools:ignore="TextFields" />
+
+    <ImageButton
+        android:id="@+id/entity_field_editor_number_incrementbutton"
+        android:background="?android:selectableItemBackground"
+        android:layout_width="@dimen/entity_field_editor_number_button_width"
+        android:layout_height="@dimen/entity_field_editor_number_button_height"
+        android:layout_marginLeft="@dimen/entity_field_editor_number_button_horizontal_margin"
+        android:src="@drawable/ic_field_editor_number_increment"
+        tools:ignore="ContentDescription,RtlHardcoded"/>
+</android.support.v7.widget.AppCompatLinearLayout>

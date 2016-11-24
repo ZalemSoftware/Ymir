@@ -1,0 +1,29 @@
+{
+	"name": "Product",
+	"channel": "ymir_sample_Product",
+	
+	"attributes": [{
+        "name": "picture",
+        "type": "IMAGE"
+    }, {
+        "name": "name",
+        "type": "TEXT"
+    }, {
+	  	"name": "price",
+	  	"type": "DECIMAL"
+	}, {
+        "name": "description",
+        "type": "TEXT"
+	}, {
+        //"Produto" ou "Serviço"
+        "name": "type",
+        "type": "TEXT"
+    }],
+	
+	"relationships": [{
+      "name": "expenses",
+      "type": "ASSOCIATION_ARRAY",
+      "entity": "Expense",
+      "mappedBy": "product"
+    }]
+}

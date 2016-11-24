@@ -1,0 +1,27 @@
+<resources>
+    <!-- Tema global -->
+    <style name="Theme.Sample.Light" parent="Theme.Ymir.Light.Entity">
+        <item name="colorAccent">@color/teal</item>
+    </style>
+
+
+    <!-- Temas de sobreposição específicos para as perspectivas de cada entidade. -->
+    <style name="ThemeOverlay.Sample.Light.Perspective" parent="" />
+
+    <style name="ThemeOverlay.Sample.Light.Perspective.Expense">
+        <item name="colorPrimary">@color/primary_expense</item>
+        <item name="colorPrimaryDark">@color/primary_dark_expense</item>
+        <!-- Utiliza uma margem inferior maior do que a normal no FAB pois a perspectiva possui uma barra de totais na parte de baixo. -->
+        <item name="perspectiveFABMarginBottom">@dimen/expense_list_fab_margin_bottom</item>
+    </style>
+
+    <style name="ThemeOverlay.Sample.Light.Perspective.Place">
+        <item name="colorPrimary">@color/primary_place</item>
+        <item name="colorPrimaryDark">@color/primary_dark_place</item>
+    </style>
+
+    <style name="ThemeOverlay.Sample.Light.Perspective.Product">
+        <item name="colorPrimary">@color/primary_product</item>
+        <item name="colorPrimaryDark">@color/primary_dark_product</item>
+    </style>
+</resources>
