@@ -17,3 +17,8 @@ Ymir é um framework nativo Android para a construção facilitada de aplicativo
 Um simples aplicativo de Registro de Gastos que demonstra [**como utilizar**](https://github.com/ZalemSoftware/Ymir/tree/master/ymir.sample-offline) o Ymir.
 
 ![ymir.sampe-offline - screenshots](https://s11.postimg.org/dgnkzbvcj/ymir_sampe_offline_screenshots.png)
+
+
+# Gradle
+
+Em breve, caminhos para o uso do Ymir com o Gradle.
