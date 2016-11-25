@@ -13,10 +13,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:paddingLeft="@dimen/expense_list_total_margin"
-        android:paddingRight="@dimen/expense_list_total_margin"
-        android:paddingTop="@dimen/expense_list_total_margin"
-        android:paddingBottom="@dimen/expense_list_total_margin"
+        android:paddingLeft="@dimen/expense_list_total_horizontal_margin"
+        android:paddingRight="@dimen/expense_list_total_horizontal_margin"
+        android:paddingTop="@dimen/expense_list_total_vertical_margin"
+        android:paddingBottom="@dimen/expense_list_total_vertical_margin"
         tools:ignore="UselessParent">
 
         <TextView

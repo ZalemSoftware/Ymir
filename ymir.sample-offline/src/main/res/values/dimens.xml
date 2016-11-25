@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="expense_list_total_margin">16dp</dimen>
+    <dimen name="expense_list_total_horizontal_margin">16dp</dimen>
+    <dimen name="expense_list_total_vertical_margin">16dp</dimen>
     <dimen name="expense_list_fab_margin_bottom">72dp</dimen>
 </resources>
