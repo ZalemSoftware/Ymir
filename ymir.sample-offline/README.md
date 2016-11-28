@@ -33,9 +33,9 @@ tasks.withType(JavaCompile) { task ->
 <br>
 ## 2. Dados
 
-O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) precisa que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. A estrutura completa desta configuração pode ser vista em sua [representação POJO](../ymir.client-android.entity.data-openmobster/src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).
+O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) necessita que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. A estrutura completa desta configuração pode ser vista em sua [representação POJO](../ymir.client-android.entity.data-openmobster/src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).
 
-Recomenda-se que os arquivos json fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_metadata.json`, de acordo com o exemplo:
+Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_metadata.json`, de acordo com o exemplo:
 
 #### product_metadata.json
 
@@ -64,7 +64,7 @@ Recomenda-se que os arquivos json fiquem na pasta `raw` de recursos do Android e
 }
 ```
 
-
+<br>
 Para finalizar, o OpenMobster precisa que os canias de dados sejam definidos em um arquivo chamado `openmobster-app.xml`, que deve estar na raiz do classpath. Para isto, recomenda-se criar uma pasta de `resources`, conforme [aqui](src/main/resources).<br>
 Os canais também são utilizados para a sincronização de dados com a nuvem, o que será demonstrado posteriormente em uma aplicação de exemplo online.
 
@@ -79,6 +79,94 @@ Os canais também são utilizados para a sincronização de dados com a nuvem, o
 </app-conf>
 ```
 
+<br>
+## 2. Interfaces
+O [componente de intefaces das entidades](../ymir.client-android.entity.ui) necessita que cada entidade tenha suas telas configuradas. Esta aplicação utiliza a versão [JSON da configuração](../ymir.client-android.entity.ui.configuration-json), mas posteriormente será disponibilizada uma forma em XML também (para melhor utilizar os recursos string do Android). A estrutura completa desta configuração pode ser vista em sua [representação POJO](ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration/src/main/java/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.java).
+
+Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_config.json`, de acordo com o exemplo:
+```json
+{
+	"name": "Product",
+	"displayName": {
+		"singular": "Produto",
+		"plural": "Produtos"
+	},
+
+    	"fieldsDefaults": [{
+		"name": "name",
+		"label": "Nome"
+    	}, {
+		"name": "price",
+		"label": "Preço",
+		"mask": "CURRENCY_DEFAULT"
+	}],
+	
+	"list": {
+		"layout": {
+			"type": "LIST_LAYOUT_3",
+			"fields": [{
+				"attribute": "picture",
+				"layoutField": "IMAGE1"
+			}, {
+				"attribute": "name",
+				"layoutField": "TEXT1"
+			}, {
+				"attribute": "description",
+				"layoutField": "TEXT2"
+			}, {
+				"attribute": "price",
+				"layoutField": "TEXT3"
+			}]
+		},
+		"order": {
+			"fields": [{
+				"attribute": "name"
+			}, {
+				"attribute": "price",
+				"asc": false
+            		}]
+		}
+	},
+	
+	"detail": {
+		"header": {
+			"type": "DETAIL_LAYOUT_1",
+			"fields": [{
+			    "attribute": "picture",
+			    "layoutField": "IMAGE1"
+			}, {
+			    "attribute": "name",
+			    "layoutField": "TEXT1"
+			}, {
+			    "attribute": "type",
+			    "layoutField": "TEXT2"
+			}, {
+			    "attribute": "price",
+			    "layoutField": "TEXT3"
+			}]
+		},
+		"fields": [{
+			"attribute": "name"
+		}]
+	},
+
+	"editing": {
+		"local": {
+			"canCreate": true,
+			"canUpdate": true,
+			"canDelete": true
+		},
+		"fields": [{
+			"attribute": "name",
+			"inputType": "TYPE_TEXT_FLAG_CAP_SENTENCES"
+		}, {
+			"attribute": "price"
+		}, {
+		    	"attribute": "picture"
+		}]
+	}
+}
+```
 
 
 
