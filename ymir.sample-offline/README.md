@@ -274,6 +274,7 @@ Além disso, o componente de perspectivas dispõe o menu de navegação lateral,
 </ymirMenu>
 ```
 
+
 <br>
 ## 5. Módulo
 
@@ -286,13 +287,13 @@ public final class SampleOfflineModule extends AbstractModule {
 	private final Application application;
 
 	public SampleOfflineModule(Application application) {
-	this.application = application;
+		this.application = application;
 	}
 
 	@Override
 	protected void configure() {
 		/*
-		 * Vincula o gerenciador de dados das entidades da aplicação (baseado no OpenMobster).
+		 * Vincula o gerenciador de dados das entidades (baseado no OpenMobster).
 		 * Necessário para o componente de interfaces das entidades.
 		 */
 		MobileBeanEntityDataManager dataManager = MobileBeanEntityDataManager.fromJsonResources(new ObjectMapper(), application,
@@ -308,7 +309,7 @@ public final class SampleOfflineModule extends AbstractModule {
 
 
 		/*
-		 * Vincula o gerenciador de configurações das interfaces da aplicação (em arquivos JSON).
+		 * Vincula o gerenciador de configurações das interfaces.
 		 * Necessário para o componente de interfaces das entidades.
 		 */
 		JsonEntityUIConfigManager configManager = JsonEntityUIConfigManager.fromJsonResources(objectMapper, application,
@@ -325,7 +326,7 @@ public final class SampleOfflineModule extends AbstractModule {
 
 		/*
 		 * Vincula o gerenciador de eventos da aplicação.
-		 * Apenas necessário se a aplicação utilizar listeners de eventos.
+		 * Necessário apenas se a aplicação utilizar listeners de eventos.
 		 */
 		ProductEventListener productListener = new ProductEventListener();
 		BasicEntityUIEventManager eventManager = new BasicEntityUIEventManager(productListener)
@@ -335,4 +336,50 @@ public final class SampleOfflineModule extends AbstractModule {
 ```
 
 
-//TODO o resto do tutorial
+<br>
+## 5. Manifest
+
+Por fim, algumas configurações são necessárias no manifest da aplicação Android. O RoboGuice precisa saber o caminho do Módulo da aplicação e o [componente de perspectivas](../ymir.client-android.perspective) precisa ter sua Activity configurada. Esta Activity geralmente é o ponto de entrada da aplicação, já que controla a execução de todas as perspectivas declaradas anteriormente. Entretanto, ainda é possível declarar e abrir outras Activities normalmente. Segue um exemplo de manifest:
+
+```xml
+<manifest package="br.com.zalem.ymir.sample.offline"
+  	  xmlns:android="http://schemas.android.com/apk/res/android">
+    <application
+        android:theme="@style/Theme.Ymir.Light.Entity"
+        android:label="@string/app_name"
+        android:icon="@drawable/ic_launcher">
+
+        <!-- Determina o Módulo que configura as dependências injetadas. -->
+        <meta-data
+            android:name="roboguice.modules"
+            android:value="br.com.zalem.ymir.sample.offline.SampleOfflineModule" />
+        <!-- Determina os bancos de anotações da aplicação, sendo identificados pelo pacote do módulo.
+	     Por enquanto, apenas o "br.com.zalem.ymir.client.android.entity.ui" é necessário.
+	     Se a aplicação utilizar injeção de dependências, também é necessário colocar seu pacote. -->
+        <meta-data
+            android:name="roboguice.annotations.packages"
+            android:value="br.com.zalem.ymir.sample.offline,br.com.zalem.ymir.client.android.entity.ui"/>
+
+        <!-- Activity que gerencia todas as perspectivas (telas) da aplicação. -->
+        <activity android:name="br.com.zalem.ymir.client.android.perspective.PerspectiveActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+            <!-- Configura o xml com as perspectivas definidas anteriormente -->
+            <meta-data
+                android:name="br.com.zalem.ymir.client.android.perspective.perspectives"
+                android:resource="@xml/perspectives" />
+            <!-- Configura o xml com o menu lateral de navegação definido anteriormente -->
+            <meta-data
+                android:name="br.com.zalem.ymir.client.android.perspective.navigation-menu"
+                android:resource="@xml/navigation_menu" />
+        </activity>
+    </application>
+</manifest>
+```
+
+<br>
+Pronto! Agora é só rodar a aplicação feita com o framework Ymir.
+<br>Para conhecer mais recursos, confira as configurações da aplicação de exemplo `ymir.sample-offline`, que é uma versão avançada do que foi mostrado neste tutorial.
