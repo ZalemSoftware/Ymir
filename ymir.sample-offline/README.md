@@ -281,6 +281,7 @@ Além disso, o componente de perspectivas dispõe o menu de navegação lateral,
 O Ymir utiliza o [RoboGuice](https://github.com/roboguice/roboguice) para controlar injeção de dependências entre os componentes (como o gerenciador de dados ou o  gerenciador de configurações). Desta forma, é possível trocar os componentes originais por mocks ou até por componentes próprios de forma robusta, sem a necessidade de alterar cada classe que os utilizam.<br>
 Para isto, é necessário declarar uma classe que estenda o `AbstractModule` e vincular os componentes no método `configure`, conforme no exemplo:
 
+#### SampleOfflineModule.java
 ```java
 public final class SampleOfflineModule extends AbstractModule {
 
@@ -341,6 +342,7 @@ public final class SampleOfflineModule extends AbstractModule {
 
 Por fim, algumas configurações são necessárias no manifest da aplicação Android. O RoboGuice precisa saber o caminho do Módulo da aplicação e o [componente de perspectivas](../ymir.client-android.perspective) precisa ter sua Activity configurada. Esta Activity geralmente é o ponto de entrada da aplicação, já que controla a execução de todas as perspectivas declaradas anteriormente. Entretanto, ainda é possível declarar e abrir outras Activities normalmente. Segue um exemplo de manifest:
 
+#### AndroidManifest.xml
 ```xml
 <manifest package="br.com.zalem.ymir.sample.offline"
   	  xmlns:android="http://schemas.android.com/apk/res/android">
@@ -360,7 +362,7 @@ Por fim, algumas configurações são necessárias no manifest da aplicação An
             android:name="roboguice.annotations.packages"
             android:value="br.com.zalem.ymir.sample.offline,br.com.zalem.ymir.client.android.entity.ui"/>
 
-        <!-- Activity que gerencia todas as perspectivas (telas) da aplicação. -->
+        <!-- Declara a Activity que gerencia todas as perspectivas (telas) da aplicação. -->
         <activity android:name="br.com.zalem.ymir.client.android.perspective.PerspectiveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
