@@ -31,7 +31,7 @@ tasks.withType(JavaCompile) { task ->
 ```
 
 <br>
-## 2. Dados
+## 2. Dados das entidades
 
 O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) necessita que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. Por enquanto, a estrutura completa desta configuração pode ser vista em sua [representação POJO](../ymir.client-android.entity.data-openmobster/src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).
 
@@ -80,7 +80,7 @@ Os canais também são utilizados para a sincronização de dados com a nuvem, o
 ```
 
 <br>
-## 2. Interfaces
+## 3. Interfaces das entidades
 O [componente de intefaces das entidades](../ymir.client-android.entity.ui) necessita que cada entidade tenha suas telas configuradas. Esta aplicação utiliza a versão [JSON da configuração](../ymir.client-android.entity.ui.configuration-json), mas há a intenção de disponibilizar uma outra forma em XML (a fim de melhor utilizar os recursos string do Android). Por enquanto, a estrutura completa desta configuração pode ser vista em sua [representação POJO](ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration/src/main/java/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.java).
 
 Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_config.json`, de acordo com o exemplo:
@@ -170,8 +170,59 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 }
 ```
 
+<br>
+## 4. Perspectivas
+Cada tela do [componente de intefaces das entidades](../ymir.client-android.entity.ui) é uma perspectiva, um tipo de fragmento que atua como uma Activity. O [componente de perspectivas](../ymir.client-android.perspective) dispõe uma forma robusta de configuração, possibilitando definir qual perspectiva será aberta para cada ação de cada entidade. Desta forma, é possível utilizar as perspectivas já existentes do componente de interfaces, definir versões customiadas das perspectivas já existentes ou até criar perspectivas totalmente novas.<br>
+As perspectivas da aplicação devem ser definidas em um arquivo XML, dentro da pasta de recursos `xml` do Android, conforme o exemplo:
 
+#### perspectivas.xml
+```xml
+<perspectives xmlns:ymir="http://schemas.android.com/apk/res-auto">
 
+	<!-- Utiliza a perspectiva padrão para a listagem/detalhamento da entidade Produto (de acordo com os actions e category) -->
+	<perspective ymir:title="@string/product_list_perspective_title"
+		ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityListDetailPerspective">
+		<intent-filter>
+			<action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
+			<action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
+			<category ymir:name="Product" />
+		</intent-filter>
+		
+		<argument ymir:key="ENABLE_FAB_ADD" />
+	</perspective>
+	
+	<!-- Utiliza uma perspectiva customizada para a edição da entidade Produto, que estende a perspectiva padrão  "br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective" -->
+	<perspective ymir:title="@string/product_editing_perspective_title"
+		ymir:className="br.com.zalem.ymir.sample.offline.perspective.ProductCustomEditingPerspective">
+		<intent-filter>
+		    <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.EDITING" />
+		    <category ymir:name="Product" />
+		</intent-filter>
+	</perspective>
+	
+	<!-- ... -->
+</perspectives>
+```
+
+<br>
+Além disso, o componente de perspectivas dispõe o menu de navegação lateral, que permite a troca entre as perpectivas iniciais. O menu deve ser configurado em um arquivo XML, dentro da pasta de recursos `xml` do Android, conforme exemplo:
+
+#### navigation_menu.xml
+```xml
+<ymirMenu xmlns:ymir="http://schemas.android.com/apk/res-auto">
+    <group ymir:id="@+id/navigation_menu_group_1">
+        <item ymir:title="@string/product_list_perspective_title"
+              ymir:icon="@drawable/ic_menu_product"
+              ymir:color="@color/primary_product">
+            <intent ymir:action="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL"
+                    ymir:category="Product"
+                    ymir:flags="clear_backstack" />
+        </item>
+    </group>
+    
+    <!-- ... -->
+</ymirMenu>
+```
 
 
 //TODO o resto do tutorial
