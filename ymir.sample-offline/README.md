@@ -95,7 +95,8 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 		"singular": "Produto",
 		"plural": "Produtos"
 	},
-
+	
+	//Define os valores padrão para os campos nas configurações, evitando repetições.
 	"fieldsDefaults": [{
 		"name": "name",
 		"label": "Nome"
@@ -105,6 +106,7 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 		"mask": "CURRENCY_DEFAULT"
 	}],
 	
+	//Configurações de listagem da entidade, como o layout de cada linha da lista e sua ordenação.
 	"list": {
 		"layout": {
 			"type": "LIST_LAYOUT_3",
@@ -132,6 +134,7 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 		}
 	},
 	
+	//Configurações do detalhamento da entidade, como o layout do cabeçalho e os demais campos.
 	"detail": {
 		"header": {
 			"type": "DETAIL_LAYOUT_1",
@@ -154,6 +157,7 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 		}]
 	},
 
+	//Configurações de edição da entidade, como as permissões de edição e os campos editáveis.
 	"editing": {
 		"local": {
 			"canCreate": true,
@@ -273,7 +277,62 @@ Além disso, o componente de perspectivas dispõe o menu de navegação lateral,
 <br>
 ## 5. Módulo
 
+O Ymir utiliza o [RoboGuice](https://github.com/roboguice/roboguice) para controlar injeção de dependências entre os componentes (como o gerenciador de dados ou o  gerenciador de configurações). Desta forma, é possível trocar os componentes originais por mocks ou até por componentes próprios de forma robusta, sem a necessidade de alterar cada classe que os utilizam.<br>
+Para isto, é necessário declarar uma classe que estenda o `AbstractModule` e vincular os componentes no método `configure`, conforme no exemplo:
 
+```java
+public final class SampleOfflineModule extends AbstractModule {
+
+	private final Application application;
+
+	public SampleOfflineModule(Application application) {
+	this.application = application;
+	}
+
+	@Override
+	protected void configure() {
+		/*
+		 * Vincula o gerenciador de dados das entidades da aplicação (baseado no OpenMobster).
+		 * Necessário para o componente de interfaces das entidades.
+		 */
+		MobileBeanEntityDataManager dataManager = MobileBeanEntityDataManager.fromJsonResources(new ObjectMapper(), application,
+	    		//Utiliza os metadados declarados previamente nos arquivos json.
+			R.raw.expense_metadata,
+			R.raw.place_metadata,
+			R.raw.product_metadata
+            	);
+		bind(IEntityDataManager.class).toInstance(dataManager);
+
+		//Configura o ativador do OpenMobster na aplicação.
+		application.registerActivityLifecycleCallbacks(OpenMobsterActivator.createOfflineActivator());
+
+
+		/*
+		 * Vincula o gerenciador de configurações das interfaces da aplicação (em arquivos JSON).
+		 * Necessário para o componente de interfaces das entidades.
+		 */
+		JsonEntityUIConfigManager configManager = JsonEntityUIConfigManager.fromJsonResources(objectMapper, application,
+			//Utiliza as configurações declaradas previamente nos arquivos json.
+			R.raw.expense_config,
+			R.raw.place_config,
+			R.raw.product_config
+		);
+		bind(IEntityUIConfigManager.class).toInstance(configManager);
+
+		//Aplica os valores padrão em cada configuração (definidas nos "fieldsDefaults" de cada entidade).
+		configManager.applyFieldsDefaults(dataManager);
+
+
+		/*
+		 * Vincula o gerenciador de eventos da aplicação.
+		 * Apenas necessário se a aplicação utilizar listeners de eventos.
+		 */
+		ProductEventListener productListener = new ProductEventListener();
+		BasicEntityUIEventManager eventManager = new BasicEntityUIEventManager(productListener)
+		bind(IEntityUIEventManager.class).toInstance(eventManager);
+	}
+}
+```
 
 
 //TODO o resto do tutorial
