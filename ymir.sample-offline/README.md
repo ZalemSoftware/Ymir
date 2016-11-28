@@ -33,7 +33,7 @@ tasks.withType(JavaCompile) { task ->
 <br>
 ## 2. Dados
 
-O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) necessita que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. A estrutura completa desta configuração pode ser vista em sua [representação POJO](../ymir.client-android.entity.data-openmobster/src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).
+O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) necessita que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. Por enquanto, a estrutura completa desta configuração pode ser vista em sua [representação POJO](../ymir.client-android.entity.data-openmobster/src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).
 
 Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_metadata.json`, de acordo com o exemplo:
 
@@ -81,9 +81,11 @@ Os canais também são utilizados para a sincronização de dados com a nuvem, o
 
 <br>
 ## 2. Interfaces
-O [componente de intefaces das entidades](../ymir.client-android.entity.ui) necessita que cada entidade tenha suas telas configuradas. Esta aplicação utiliza a versão [JSON da configuração](../ymir.client-android.entity.ui.configuration-json), mas posteriormente será disponibilizada uma forma em XML também (para melhor utilizar os recursos string do Android). A estrutura completa desta configuração pode ser vista em sua [representação POJO](ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration/src/main/java/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.java).
+O [componente de intefaces das entidades](../ymir.client-android.entity.ui) necessita que cada entidade tenha suas telas configuradas. Esta aplicação utiliza a versão [JSON da configuração](../ymir.client-android.entity.ui.configuration-json), mas há a intenção de disponibilizar uma outra forma em XML (a fim de melhor utilizar os recursos string do Android). Por enquanto, a estrutura completa desta configuração pode ser vista em sua [representação POJO](ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration/src/main/java/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.java).
 
 Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_config.json`, de acordo com o exemplo:
+
+#### product_config.json
 ```json
 {
 	"name": "Product",
@@ -92,7 +94,7 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 		"plural": "Produtos"
 	},
 
-    	"fieldsDefaults": [{
+	"fieldsDefaults": [{
 		"name": "name",
 		"label": "Nome"
     	}, {
@@ -124,7 +126,7 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 			}, {
 				"attribute": "price",
 				"asc": false
-            		}]
+			}]
 		}
 	},
 	
@@ -162,7 +164,7 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 		}, {
 			"attribute": "price"
 		}, {
-		    	"attribute": "picture"
+			"attribute": "picture"
 		}]
 	}
 }
