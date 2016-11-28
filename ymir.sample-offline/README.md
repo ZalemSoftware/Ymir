@@ -88,7 +88,7 @@ O [componente de intefaces das entidades](../ymir.client-android.entity.ui) nece
 Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_config.json`, de acordo com o exemplo:
 
 #### product_config.json
-```json
+```
 {
 	"name": "Product",
 	"displayName": {
@@ -296,11 +296,11 @@ public final class SampleOfflineModule extends AbstractModule {
 		 * Necessário para o componente de interfaces das entidades.
 		 */
 		MobileBeanEntityDataManager dataManager = MobileBeanEntityDataManager.fromJsonResources(new ObjectMapper(), application,
-	    		//Utiliza os metadados declarados previamente nos arquivos json.
+			//Utiliza os metadados declarados previamente nos arquivos json.
 			R.raw.expense_metadata,
 			R.raw.place_metadata,
 			R.raw.product_metadata
-            	);
+		);
 		bind(IEntityDataManager.class).toInstance(dataManager);
 
 		//Configura o ativador do OpenMobster na aplicação.
