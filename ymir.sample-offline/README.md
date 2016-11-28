@@ -1,5 +1,5 @@
 # Como utilizar
->English docs in the near future.
+> English docs in the near future.
 
 Segue o passo-a-passo de como criar uma nova aplicação utilizando o Ymir. Os passos a seguir utilizam como exemplo este aplicativo, um simples registrador de gastos sem conexão com a nuvem.
 
@@ -23,12 +23,44 @@ dependencies {
 
 //Necessário apenas se a aplicação possuir classes que utilizam injeção de dependências (@Inject).
 tasks.withType(JavaCompile) { task ->
-    //Configura o RoboBlender para gerar um banco de anotações com o nome do pacote da aplicação, otimizando a injeção de dependências.
+    //Configura a geração do banco de anotações, identificado pelo pacote da aplicação.
     options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.sample.offline"
 }
 
 ```
 
+## 2. Dados
+
+O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) precisa que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. A estrutura completa desta configuração pode ser vista em sua [representação POJO](../ymir.client-android.entity.data-openmobster/src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).
+
+O recomendado é que os arquivos json fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_metadata.json`, de acordo com o exemplo abaixo.
+
+#### product_metadata.json
+
+```json
+{
+	"name": "Product",
+	"channel": "ymir_sample_Product",
+	
+	"attributes": [{
+        "name": "name",
+        "type": "TEXT"
+    }, {
+	  	"name": "price",
+	  	"type": "DECIMAL"
+	}, {
+        "name": "picture",
+        "type": "IMAGE"
+    }],
+	
+	"relationships": [{
+        "name": "expenses",
+        "type": "ASSOCIATION_ARRAY",
+        "entity": "Expense",
+        "mappedBy": "product"
+    }]
+}
+```
 
 
 
