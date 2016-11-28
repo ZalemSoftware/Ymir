@@ -30,6 +30,7 @@ tasks.withType(JavaCompile) { task ->
 
 ```
 
+
 <br>
 ## 2. Dados das entidades
 
@@ -78,6 +79,7 @@ Os canais também são utilizados para a sincronização de dados com a nuvem, o
     </channels>
 </app-conf>
 ```
+
 
 <br>
 ## 3. Interfaces das entidades
@@ -171,17 +173,61 @@ Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e
 ```
 
 <br>
+Além disso, é possível configurar `listeners de eventos` para adicionar regras de negócio, validações e cálculos nas interfaces das entidades. Para isto, basta declarar uma classe que implemente a interface `IEntityUIEventListener` e configurá-la no Módulo, de acordo com o exemplo:
+
+#### ProductEventListener.java
+```java
+public final class ProductEventListener extends EntityUIEventListenerAdapter {
+
+    @Override
+    public String getEntityName() {
+        return PRODUCT_ENTITY;
+    }
+    
+    
+    @Override
+    public void onEditRecordAttribute(IEntityRecord record, String attributeName, IEntityEditingErrorHandler errorHandler) {
+        switch (attributeName) {
+            case PRODUCT_ATTRIBUTE_NAME:
+                ValidationUtils.validateNotEmpty(record, PRODUCT_ATTRIBUTE_NAME, errorHandler);
+                break;
+    
+            case PRODUCT_ATTRIBUTE_PRICE:
+                ValidationUtils.validatePositive(record, PRODUCT_ATTRIBUTE_PRICE, errorHandler);
+                break;
+    
+            case PRODUCT_ATTRIBUTE_TYPE:
+                ValidationUtils.validateNotEmpty(record, PRODUCT_ATTRIBUTE_TYPE, errorHandler);
+                break;
+        }
+    }
+    
+    @Override
+    public boolean beforeSaveRecord(IEntityRecord record, boolean sync,	IEntityEditingErrorHandler errorHandler) {
+        //Revalida todos os atributos.
+        ValidationUtils.validateNotEmpty(record, PRODUCT_ATTRIBUTE_NAME, errorHandler);
+        ValidationUtils.validatePositive(record, PRODUCT_ATTRIBUTE_PRICE, errorHandler);
+        ValidationUtils.validateNotEmpty(record, PRODUCT_ATTRIBUTE_TYPE, errorHandler);
+    
+        return !errorHandler.isEmpty();
+    }
+}
+```
+
+
+<br>
 ## 4. Perspectivas
 Cada tela do [componente de intefaces das entidades](../ymir.client-android.entity.ui) é uma perspectiva, um tipo de fragmento que atua como uma Activity. O [componente de perspectivas](../ymir.client-android.perspective) dispõe uma forma robusta de configuração, possibilitando definir qual perspectiva será aberta para cada ação de cada entidade. Desta forma, é possível utilizar as perspectivas já existentes do componente de interfaces, definir versões customiadas das perspectivas já existentes ou até criar perspectivas totalmente novas.<br>
 As perspectivas da aplicação devem ser definidas em um arquivo XML, dentro da pasta de recursos `xml` do Android, conforme o exemplo:
 
-#### perspectivas.xml
+#### perspectives.xml
 ```xml
 <perspectives xmlns:ymir="http://schemas.android.com/apk/res-auto">
 
 	<!-- Utiliza a perspectiva padrão para a listagem/detalhamento da entidade Produto (de acordo com os actions e category) -->
 	<perspective ymir:title="@string/product_list_perspective_title"
-		ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityListDetailPerspective">
+		ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityListDetailPerspective"
+		ymir:launchMode="single">
 		<intent-filter>
 			<action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
 			<action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
@@ -223,6 +269,11 @@ Além disso, o componente de perspectivas dispõe o menu de navegação lateral,
     <!-- ... -->
 </ymirMenu>
 ```
+
+<br>
+## 5. Módulo
+
+
 
 
 //TODO o resto do tutorial
