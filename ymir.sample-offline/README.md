@@ -1,9 +1,19 @@
 # Como utilizar
 > English docs in the near future.
 
-Segue o passo-a-passo de como criar uma nova aplicação utilizando o Ymir. Os passos a seguir utilizam como exemplo este aplicativo, um simples registrador de gastos sem conexão com a nuvem.
+Passo a passo de como criar uma nova aplicação utilizando o Ymir. Foram utilizadas partes simplificadas deste aplicativo de exemplo, um registrador de gastos sem conexão com a nuvem. Para conhecer recursos mais avançados do Ymir, recomenda-se o estudo dos fontes/configurações do `ymir.sample-offline`.
+
+## Índice
+  0. [Gradle](#gradle)
+  0. [Dados das entidades](#data)
+  0. [Interfaces das entidades](#ui)
+  0. [Perspectivas](#perspectives)
+  0. [Módulo](#module)
+  0. [Manifest](#manifest)
+
 
 <br>
+<a name="gradle"/>
 ## 1. Gradle
 
 A configuração abaixo determina que a aplicação irá utilizar o componente de Interfaces de Entidades. Para isto, também é necessário definir como as interfaces serão configureadas (JSON) e qual será o provedor de dados (OpenMobster).<br>
@@ -32,6 +42,7 @@ tasks.withType(JavaCompile) { task ->
 
 
 <br>
+<a name="data"/>
 ## 2. Dados das entidades
 
 O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) necessita que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. Por enquanto, a estrutura completa desta configuração pode ser vista em sua [representação POJO](../ymir.client-android.entity.data-openmobster/src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).
@@ -82,6 +93,7 @@ Os canais também são utilizados para a sincronização de dados com a nuvem, o
 
 
 <br>
+<a name="ui"/>
 ## 3. Interfaces das entidades
 O [componente de intefaces das entidades](../ymir.client-android.entity.ui) necessita que cada entidade tenha suas telas configuradas. Esta aplicação utiliza a versão [JSON da configuração](../ymir.client-android.entity.ui.configuration-json), mas há a intenção de disponibilizar uma outra forma em XML (a fim de melhor utilizar os recursos string do Android). Por enquanto, a estrutura completa desta configuração pode ser vista em sua [representação POJO](ymir.client-android.entity.ui/ymir.client-android.entity.ui.configuration/src/main/java/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.java).
 
@@ -220,6 +232,7 @@ public final class ProductEventListener extends EntityUIEventListenerAdapter {
 
 
 <br>
+<a name="perspectives"/>
 ## 4. Perspectivas
 Cada tela do [componente de intefaces das entidades](../ymir.client-android.entity.ui) é uma perspectiva, um tipo de fragmento que atua como uma Activity. O [componente de perspectivas](../ymir.client-android.perspective) dispõe uma forma robusta de configuração, possibilitando definir qual perspectiva será aberta para cada ação de cada entidade. Desta forma, é possível utilizar as perspectivas já existentes do componente de interfaces, definir versões customiadas das perspectivas já existentes ou até criar perspectivas totalmente novas.<br>
 As perspectivas da aplicação devem ser definidas em um arquivo XML, dentro da pasta de recursos `xml` do Android, conforme o exemplo:
@@ -276,6 +289,7 @@ Além disso, o componente de perspectivas dispõe o menu de navegação lateral,
 
 
 <br>
+<a name="module"/>
 ## 5. Módulo
 
 O Ymir utiliza o [RoboGuice](https://github.com/roboguice/roboguice) para controlar injeção de dependências entre os componentes (como o gerenciador de dados ou o  gerenciador de configurações). Desta forma, é possível trocar os componentes originais por mocks ou até por componentes próprios de forma robusta, sem a necessidade de alterar cada classe que os utilizam.<br>
@@ -338,7 +352,8 @@ public final class SampleOfflineModule extends AbstractModule {
 
 
 <br>
-## 5. Manifest
+<a name="manifest"/>
+## 6. Manifest
 
 Por fim, algumas configurações são necessárias no manifest da aplicação Android. O RoboGuice precisa saber o caminho do Módulo da aplicação e o [componente de perspectivas](../ymir.client-android.perspective) precisa ter sua Activity configurada. Esta Activity geralmente é o ponto de entrada da aplicação, já que controla a execução de todas as perspectivas declaradas anteriormente. Entretanto, ainda é possível declarar e abrir outras Activities normalmente. Segue um exemplo de manifest:
 
