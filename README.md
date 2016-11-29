@@ -34,24 +34,18 @@ compile 'br.com.zalem.ymir:ymir.client-android.entity.data-openmobster:1.0.0'
 
 <br>
 #### Apenas componente de dados
-> Para aplicativos que querem utilizar apenas suas próprias interfaces.
-
 ```gradle
 compile 'br.com.zalem.ymir:ymir.client-android.entity.data-openmobster:1.0.0'
 ```
 
 
 #### Apenas componente de perspectivas
-> Para aplicativos que querem telas/transições mais fluídas.
-
 ```gradle
 compile 'br.com.zalem.ymir:ymir.client-android.perspective:1.0.0'
 ```
 
 
 #### Apenas componente de comuns
-> Para aplicativos que querem os utilitários comuns.
-
 ```gradle
 compile 'br.com.zalem.ymir:ymir.client-android.commons:1.0.0'
 ```
