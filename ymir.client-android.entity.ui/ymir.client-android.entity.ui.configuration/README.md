@@ -4,4 +4,4 @@ Este módulo define as propriedades que um componente de configurações de inte
 
 ## Implementações
 
-* [JSON](ymir.client-android.entity.ui.configuration-json)
+* [JSON](../ymir.client-android.entity.ui.configuration-json)
