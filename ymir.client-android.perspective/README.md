@@ -5,4 +5,10 @@ Oferece transições de telas mais fluídas e um menu de navegação lateral con
 <br>
 Para criar uma nova perspectiva, basta estender a classe [`Perspective`](src/main/java/br/com/zalem/ymir/client/android/perspective/Perspective.java).<br>
 <br>
-> Por enquanto, documentações sobre como utilizar este componente podem ser vistas no [aplicativo de exemplo](../ymir.sample-offline#perspectives).
+> Por enquanto, documentações sobre como utilizar este componente podem ser vistas no [aplicativo de exemplo](../ymir.sample-offline#perspectives).<br>
+
+<br>
+## Dependências
+
+Este componente depende dos seguintes módulos:
+* [Comuns](../ymir.client-android.commons)
