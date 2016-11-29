@@ -211,10 +211,6 @@ public final class ProductEventListener extends EntityUIEventListenerAdapter {
             case PRODUCT_ATTRIBUTE_PRICE:
                 ValidationUtils.validatePositive(record, PRODUCT_ATTRIBUTE_PRICE, errorHandler);
                 break;
-    
-            case PRODUCT_ATTRIBUTE_TYPE:
-                ValidationUtils.validateNotEmpty(record, PRODUCT_ATTRIBUTE_TYPE, errorHandler);
-                break;
         }
     }
     
@@ -223,7 +219,6 @@ public final class ProductEventListener extends EntityUIEventListenerAdapter {
         //Revalida todos os atributos.
         ValidationUtils.validateNotEmpty(record, PRODUCT_ATTRIBUTE_NAME, errorHandler);
         ValidationUtils.validatePositive(record, PRODUCT_ATTRIBUTE_PRICE, errorHandler);
-        ValidationUtils.validateNotEmpty(record, PRODUCT_ATTRIBUTE_TYPE, errorHandler);
     
         return !errorHandler.isEmpty();
     }
@@ -313,9 +308,9 @@ public final class SampleOfflineModule extends AbstractModule {
 		 */
 		MobileBeanEntityDataManager dataManager = MobileBeanEntityDataManager.fromJsonResources(new ObjectMapper(), application,
 			//Utiliza os metadados declarados previamente nos arquivos json.
-			R.raw.expense_metadata,
+			R.raw.product_metadata,
 			R.raw.place_metadata,
-			R.raw.product_metadata
+			R.raw.expense_metadata
 		);
 		bind(IEntityDataManager.class).toInstance(dataManager);
 
@@ -329,9 +324,9 @@ public final class SampleOfflineModule extends AbstractModule {
 		 */
 		JsonEntityUIConfigManager configManager = JsonEntityUIConfigManager.fromJsonResources(objectMapper, application,
 			//Utiliza as configurações declaradas previamente nos arquivos json.
-			R.raw.expense_config,
+			R.raw.product_config,
 			R.raw.place_config,
-			R.raw.product_config
+			R.raw.expense_config
 		);
 		bind(IEntityUIConfigManager.class).toInstance(configManager);
 
