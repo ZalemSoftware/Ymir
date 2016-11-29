@@ -22,6 +22,9 @@ Os canais representam entidades de dados para o OpenMobster, sendo utilizados ta
 ```
 
 <br>
+> Por enquanto, documentações mais completas sobre como utilizar este componente podem ser vistas no [aplicativo de exemplo](../ymir.sample-offline#data).
+
+<br>
 ## Dependências
 
 Este componente depende dos seguintes módulos:
