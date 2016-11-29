@@ -14,7 +14,7 @@ Os layouts disponíveis para os registros de lista e os cabeçalhos do detalhame
 
 <br>
 Além disso, é possível configurar `listeners de eventos` para adicionar regras de negócio, validações e cálculos nas interfaces das entidades. Para isto, basta declarar uma classe que implemente a interface `IEntityUIEventListener` e configurá-la no Módulo.
-
+<br>
 > Por enquanto, documentações mais completas sobre como utilizar este componente podem ser vistas no [aplicativo de exemplo](../ymir.sample-offline#ui).
 
 <br>
