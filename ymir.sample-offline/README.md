@@ -2,6 +2,7 @@
 > English docs in the near future.
 
 Passo a passo de como criar uma nova aplicação utilizando o Ymir. Foram utilizadas partes simplificadas do `ymir.sample-offline`, um aplicativo de registro de gastos sem conexão com a nuvem. Para conhecer recursos mais avançados do Ymir, recomenda-se o estudo dos fontes/configurações deste aplicativo de exemplo .
+>Em breve, um aplicativo exemplo com sincronização de dados com a nuvem.
 
 ## Índice
   0. [Gradle](#gradle)
