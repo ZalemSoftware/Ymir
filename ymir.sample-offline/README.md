@@ -309,7 +309,7 @@ public final class SampleOfflineModule extends AbstractModule {
 	protected void configure() {
 		/*
 		 * Vincula o gerenciador de dados das entidades (baseado no OpenMobster).
-		 * Necessário para o componente de interfaces das entidades.
+		 * Necessário para o componente de interfaces de entidades.
 		 */
 		MobileBeanEntityDataManager dataManager = MobileBeanEntityDataManager.fromJsonResources(new ObjectMapper(), application,
 			//Utiliza os metadados declarados previamente nos arquivos json.
@@ -325,7 +325,7 @@ public final class SampleOfflineModule extends AbstractModule {
 
 		/*
 		 * Vincula o gerenciador de configurações das interfaces.
-		 * Necessário para o componente de interfaces das entidades.
+		 * Necessário para o componente de interfaces de entidades.
 		 */
 		JsonEntityUIConfigManager configManager = JsonEntityUIConfigManager.fromJsonResources(objectMapper, application,
 			//Utiliza as configurações declaradas previamente nos arquivos json.
