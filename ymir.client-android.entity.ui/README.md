@@ -2,6 +2,7 @@
 
 Componente que disponibiliza telas (perspectivas) prontas de listagem, detalhamento e edição de registros de entidades.
 
+<br>
 ## Configurações
 
 Cada entidade tem suas telas e layouts definidos através de configurações. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](ymir.client-android.entity.ui.configuration/src/main/java/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.java).
