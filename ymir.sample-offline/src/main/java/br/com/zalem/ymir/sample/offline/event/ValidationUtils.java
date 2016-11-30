@@ -40,10 +40,10 @@ public final class ValidationUtils {
      * @param errorHandler manipulador de erros da edição do registro.
      */
     public static void validatePositive(IEntityRecord record, String attributeName, IEntityEditingErrorHandler errorHandler) {
-        Double currency = record.getDecimalValue(attributeName);
-        if (currency == null) {
+        Double number = record.getDecimalValue(attributeName);
+        if (number == null) {
             errorHandler.setAttributeError(attributeName, R.string.record_validation_not_null);
-        } else if (currency <= 0) {
+        } else if (number <= 0) {
             errorHandler.setAttributeError(attributeName, R.string.record_validation_positive);
         } else {
             errorHandler.removeAttributeError(attributeName);

@@ -1,5 +1,5 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
+apply from: new File(rootDir, 'maven-release.gradle')
 
 android {
     compileSdkVersion versions.compileSdk

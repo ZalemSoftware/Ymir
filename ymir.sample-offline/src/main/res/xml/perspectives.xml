@@ -1,54 +1,54 @@
-<perspectives xmlns:pegaso="http://schemas.android.com/apk/res-auto">
+<perspectives xmlns:ymir="http://schemas.android.com/apk/res-auto">
     <!-- Perspectivas iniciais (lista/detalhe).
          As perspectivas padrão são:
             Lista e Lista/Detalhes: br.com.zalem.ymir.client.android.entity.ui.perspective.EntityListDetailPerspective
             Apenas Detalhes: br.com.zalem.ymir.client.android.entity.ui.perspective.EntityDetailPerspective
     -->
 
-    <perspective pegaso:title="@string/expense_list_perspective_title"
-        pegaso:className="br.com.zalem.ymir.sample.offline.perspective.ExpenseListDetailPerspective"
-        pegaso:theme="@style/ThemeOverlay.Sample.Light.Perspective.Expense"
-        pegaso:launchMode="single" >
+    <perspective ymir:title="@string/expense_list_perspective_title"
+        ymir:className="br.com.zalem.ymir.sample.offline.perspective.ExpenseListDetailPerspective"
+        ymir:theme="@style/ThemeOverlay.Sample.Light.Perspective.Expense"
+        ymir:launchMode="single" >
         <intent-filter>
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
-            <category pegaso:name="Expense" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
+            <category ymir:name="Expense" />
         </intent-filter>
-        <argument pegaso:key="ENABLE_FAB_ADD" />
+        <argument ymir:key="ENABLE_FAB_ADD" />
     </perspective>
-    <perspective pegaso:title="@string/expense_list_perspective_title"
-        pegaso:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityDetailPerspective"
-        pegaso:theme="@style/ThemeOverlay.Sample.Light.Perspective.Expense" >
+    <perspective ymir:title="@string/expense_list_perspective_title"
+        ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityDetailPerspective"
+        ymir:theme="@style/ThemeOverlay.Sample.Light.Perspective.Expense" >
         <intent-filter>
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.DETAIL" />
-            <category pegaso:name="Expense" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.DETAIL" />
+            <category ymir:name="Expense" />
         </intent-filter>
-    </perspective>
-
-    <perspective pegaso:title="@string/product_list_perspective_title"
-        pegaso:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityListDetailPerspective"
-        pegaso:theme="@style/ThemeOverlay.Sample.Light.Perspective.Product"
-        pegaso:launchMode="single" >
-        <intent-filter>
-        	<action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
-        	<action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
-        	<category pegaso:name="Product" />
-        </intent-filter>
-        <argument pegaso:key="DISABLE_EDIT_ON_CLICK" />
-        <argument pegaso:key="ENABLE_FAB_ADD" />
     </perspective>
 
-    <perspective pegaso:title="@string/place_list_perspective_title"
-        pegaso:className="br.com.zalem.ymir.sample.offline.perspective.PlaceListDetailPerspective"
-        pegaso:theme="@style/ThemeOverlay.Sample.Light.Perspective.Place"
-        pegaso:launchMode="single" >
+    <perspective ymir:title="@string/product_list_perspective_title"
+        ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityListDetailPerspective"
+        ymir:theme="@style/ThemeOverlay.Sample.Light.Perspective.Product"
+        ymir:launchMode="single" >
         <intent-filter>
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
-            <category pegaso:name="Place" />
+        	<action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
+        	<action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
+        	<category ymir:name="Product" />
         </intent-filter>
-        <argument pegaso:key="DISABLE_EDIT_ON_CLICK" />
-        <argument pegaso:key="ENABLE_FAB_ADD" />
+        <argument ymir:key="DISABLE_EDIT_ON_CLICK" />
+        <argument ymir:key="ENABLE_FAB_ADD" />
+    </perspective>
+
+    <perspective ymir:title="@string/place_list_perspective_title"
+        ymir:className="br.com.zalem.ymir.sample.offline.perspective.PlaceListDetailPerspective"
+        ymir:theme="@style/ThemeOverlay.Sample.Light.Perspective.Place"
+        ymir:launchMode="single" >
+        <intent-filter>
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST" />
+            <category ymir:name="Place" />
+        </intent-filter>
+        <argument ymir:key="DISABLE_EDIT_ON_CLICK" />
+        <argument ymir:key="ENABLE_FAB_ADD" />
     </perspective>
 
 
@@ -56,30 +56,30 @@
          A perspectiva padrão é: br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective
      -->
 
-    <perspective pegaso:title="@string/expense_editing_perspective_title"
-        pegaso:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective"
-        pegaso:theme="@style/ThemeOverlay.Sample.Light.Perspective.Expense">
+    <perspective ymir:title="@string/expense_editing_perspective_title"
+        ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective"
+        ymir:theme="@style/ThemeOverlay.Sample.Light.Perspective.Expense">
         <intent-filter>
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.EDITING" />
-            <category pegaso:name="Expense" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.EDITING" />
+            <category ymir:name="Expense" />
         </intent-filter>
     </perspective>
 
-    <perspective pegaso:title="@string/place_editing_perspective_title"
-        pegaso:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective"
-        pegaso:theme="@style/ThemeOverlay.Sample.Light.Perspective.Place">
+    <perspective ymir:title="@string/place_editing_perspective_title"
+        ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective"
+        ymir:theme="@style/ThemeOverlay.Sample.Light.Perspective.Place">
         <intent-filter>
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.EDITING" />
-            <category pegaso:name="Place" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.EDITING" />
+            <category ymir:name="Place" />
         </intent-filter>
     </perspective>
 
-	<perspective pegaso:title="@string/product_editing_perspective_title"
-        pegaso:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective"
-        pegaso:theme="@style/ThemeOverlay.Sample.Light.Perspective.Product">
+	<perspective ymir:title="@string/product_editing_perspective_title"
+        ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntityEditingPerspective"
+        ymir:theme="@style/ThemeOverlay.Sample.Light.Perspective.Product">
         <intent-filter>
-        	<action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.EDITING" />
-        	<category pegaso:name="Product" />
+        	<action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.EDITING" />
+        	<category ymir:name="Product" />
         </intent-filter>
     </perspective>
 
@@ -88,21 +88,21 @@
 	     A perspectiva padrão é: br.com.zalem.ymir.client.android.entity.ui.perspective.EntitySelectionPerspective
 	-->
 
-    <perspective pegaso:title="@string/place_selection_perspective_title"
-        pegaso:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntitySelectionPerspective">
+    <perspective ymir:title="@string/place_selection_perspective_title"
+        ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntitySelectionPerspective">
         <intent-filter>
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.SELECTION" />
-            <category pegaso:name="Place" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.SELECTION" />
+            <category ymir:name="Place" />
         </intent-filter>
-        <argument pegaso:key="ENABLE_FAB_SELECT" />
+        <argument ymir:key="ENABLE_FAB_SELECT" />
     </perspective>
 
-    <perspective pegaso:title="@string/product_selection_perspective_title"
-        pegaso:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntitySelectionPerspective">
+    <perspective ymir:title="@string/product_selection_perspective_title"
+        ymir:className="br.com.zalem.ymir.client.android.entity.ui.perspective.EntitySelectionPerspective">
         <intent-filter>
-            <action pegaso:name="br.com.zalem.ymir.client.android.entity.ui.perspective.SELECTION" />
-            <category pegaso:name="Product" />
+            <action ymir:name="br.com.zalem.ymir.client.android.entity.ui.perspective.SELECTION" />
+            <category ymir:name="Product" />
         </intent-filter>
-        <argument pegaso:key="ENABLE_FAB_SELECT" />
+        <argument ymir:key="ENABLE_FAB_SELECT" />
     </perspective>
 </perspectives>

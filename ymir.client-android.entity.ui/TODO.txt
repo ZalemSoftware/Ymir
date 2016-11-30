@@ -165,7 +165,7 @@ b2 - A busca por voz nas listas de registro não está funcionando. Foi verifica
 
 b1 - Foi relatado que há um problema na digitação com swipe, em que ele coloca a palavra novamente ao apertar espaço.
 
--6 - O RoboGuice passa duas vezes pelo "Module.configure" (por exemplo, do PegasoTestModule). Talvez este comportamento n aconteça mais no RoboGuice 3.0, então será interessante testá-lo.
+-6 - O RoboGuice passa duas vezes pelo "Module.configure" (por exemplo, do YmirSampleModule). Talvez este comportamento n aconteça mais no RoboGuice 3.0, então será interessante testá-lo.
 		- No RoboGuice 3.0 também é possível configurar os modulos pelo AndroidManifest.xml.
 
 -4 - Implementar o "swipe down to refresh" como na app do gmail na perspectiva de lista. Já existe um layout do próprio SDK Android que cuida pelo menos da parte do swipe (SwipeRefreshLayout, mas tem que atualizar o support library).

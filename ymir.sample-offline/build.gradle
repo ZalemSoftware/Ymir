@@ -37,10 +37,3 @@ dependencies {
 tasks.withType(JavaCompile) { task ->
     options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.sample.offline"
 }
-
-
-repositories {
-    //Necessário por causa do OpenMobster.
-    //TODO remover quando o OpenMobster for colocado no github/jcenter.
-    mavenLocal()
-}

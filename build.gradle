@@ -41,6 +41,10 @@ subprojects {
             //Necessário para utilizar o PreferenceFragment com a estrutura de fragmentos do support library.
             url "https://raw.github.com/kolavar/android-support-v4-preferencefragment/master/maven-repository/"
         }
+        maven {
+            //TODO remover quando o OpenMobster for adicionado no jcenter.
+            url "https://dl.bintray.com/gesser/OpenMobster"
+        }
     }
 }
 

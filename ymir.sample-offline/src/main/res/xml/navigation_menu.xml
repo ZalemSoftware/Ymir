@@ -1,29 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ymirMenu xmlns:pegaso="http://schemas.android.com/apk/res-auto">
-    <group pegaso:id="@+id/navigation_menu_group_expenses">
-        <item pegaso:title="@string/expense_list_perspective_title"
-              pegaso:icon="@drawable/ic_menu_expense"
-              pegaso:color="@color/primary_expense">
-            <intent pegaso:action="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL"
-                    pegaso:category="Expense"
-                    pegaso:flags="clear_backstack" />
+<ymirMenu xmlns:ymir="http://schemas.android.com/apk/res-auto">
+    <group ymir:id="@+id/navigation_menu_group_expenses">
+        <item ymir:title="@string/expense_list_perspective_title"
+              ymir:icon="@drawable/ic_menu_expense"
+              ymir:color="@color/primary_expense">
+            <intent ymir:action="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL"
+                    ymir:category="Expense"
+                    ymir:flags="clear_backstack" />
         </item>
     </group>
 
-    <group pegaso:id="@+id/navigation_menu_group_other_entities">
-        <item pegaso:title="@string/product_list_perspective_title"
-              pegaso:icon="@drawable/ic_menu_product"
-              pegaso:color="@color/primary_product">
-            <intent pegaso:action="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL"
-                    pegaso:category="Product"
-                    pegaso:flags="clear_backstack" />
+    <group ymir:id="@+id/navigation_menu_group_other_entities">
+        <item ymir:title="@string/product_list_perspective_title"
+              ymir:icon="@drawable/ic_menu_product"
+              ymir:color="@color/primary_product">
+            <intent ymir:action="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL"
+                    ymir:category="Product"
+                    ymir:flags="clear_backstack" />
         </item>
-        <item pegaso:title="@string/place_list_perspective_title"
-              pegaso:icon="@drawable/ic_menu_place"
-              pegaso:color="@color/primary_place">
-            <intent pegaso:action="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL"
-                    pegaso:category="Place"
-                    pegaso:flags="clear_backstack" />
+        <item ymir:title="@string/place_list_perspective_title"
+              ymir:icon="@drawable/ic_menu_place"
+              ymir:color="@color/primary_place">
+            <intent ymir:action="br.com.zalem.ymir.client.android.entity.ui.perspective.LIST_DETAIL"
+                    ymir:category="Place"
+                    ymir:flags="clear_backstack" />
         </item>
     </group>
 </ymirMenu>

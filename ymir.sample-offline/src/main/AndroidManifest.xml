@@ -18,7 +18,7 @@
             android:name="roboguice.annotations.packages"
             android:value="br.com.zalem.ymir.sample.offline,br.com.zalem.ymir.client.android.entity.ui"/>
 
-        <!-- Activity que gerencia todas as perspectivas (telas) das entidades. -->
+        <!-- Activity que gerencia todas as perspectivas (telas) da aplicação. -->
         <activity android:name="br.com.zalem.ymir.client.android.perspective.PerspectiveActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
