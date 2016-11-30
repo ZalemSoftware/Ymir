@@ -28,6 +28,8 @@ maven { url "https://dl.bintray.com/gesser/Ymir" }
 maven { url "https://dl.bintray.com/gesser/OpenMobster" }
 ```
 
+
+<br>
 #### Framework completo
 > Os componentes de perspectivas e comuns são adicionados de forma transitiva com esta configuração.
 
