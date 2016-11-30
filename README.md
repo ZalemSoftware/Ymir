@@ -21,12 +21,18 @@ Um simples aplicativo de Registro de Gastos que demonstra [**como utilizar**](ym
 
 ## Gradle
 
-Em breve, o Ymir estará disponível no repositório JCenter. Seguem os cenários de utilização mais comuns dos componentes do framework.
+Os components do framework podem ser utilizados de várias formas. Seguem as configurações do gradle para os cenários mais comuns.
+> Por enquanto, o Ymir ainda não está publicado no JCenter, sendo necessário configurar os seguintes repositórios:
+```gradle
+maven { url "https://dl.bintray.com/gesser/Ymir" }
+maven { url "https://dl.bintray.com/gesser/OpenMobster" }
+```
 
 #### Framework completo
-> Os componentes de interfaces, perspectivas e comuns são adicionados de forma transitiva com esta configuração.
+> Os componentes de perspectivas e comuns são adicionados de forma transitiva com esta configuração.
 
 ```gradle
+compile 'br.com.zalem.ymir:ymir.client-android.entity.ui:1.0.0'
 compile 'br.com.zalem.ymir:ymir.client-android.entity.ui.configuration-json:1.0.0'
 compile 'br.com.zalem.ymir:ymir.client-android.entity.data-openmobster:1.0.0'
 ```
