@@ -22,23 +22,29 @@ O Ymir utiliza o [RoboGuice](https://github.com/roboguice/roboguice) para a inje
 
 ```gradle
 dependencies {
-    //Utiliza UIs prontas para a manipulação dos dados das entidades.
-    compile 'br.com.zalem.ymir:ymir.client-android.entity.ui:1.0.0'
-    //Configura as interfaces através de arquivos JSON.
-    compile 'br.com.zalem.ymir:ymir.client-android.entity.ui.configuration-json:1.0.0'
-    //Provê os dados para as interfaces com o OpenMobster.
-    compile 'br.com.zalem.ymir:ymir.client-android.entity.data-openmobster:1.0.0'
-    
-    //Necessário apenas se a aplicação possuir classes que utilizam injeção de dependências (@Inject).
-    provided 'org.roboguice:roboblender:3.0.1'
+	//Utiliza UIs prontas para a manipulação dos dados das entidades.
+	compile 'br.com.zalem.ymir:ymir.client-android.entity.ui:1.0.0'
+	//Configura as interfaces através de arquivos JSON.
+	compile 'br.com.zalem.ymir:ymir.client-android.entity.ui.configuration-json:1.0.0'
+	//Provê os dados para as interfaces com o OpenMobster.
+	compile 'br.com.zalem.ymir:ymir.client-android.entity.data-openmobster:1.0.0'
+
+	//Necessário apenas se a aplicação possuir classes que utilizam injeção de dependências (@Inject).
+	provided 'org.roboguice:roboblender:3.0.1'
 }
 
 //Necessário apenas se a aplicação possuir classes que utilizam injeção de dependências (@Inject).
 tasks.withType(JavaCompile) { task ->
-    //Configura a geração do banco de anotações, identificado pelo pacote da aplicação.
-    options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.sample.offline"
+	//Configura a geração do banco de anotações, identificado pelo pacote da aplicação.
+	options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.sample.offline"
 }
 
+
+//Por enquanto, o Ymir ainda não está publicado no JCenter, sendo necessário configurar estes repositórios:
+repositories {
+	maven { url "https://dl.bintray.com/gesser/Ymir" }
+	maven { url "https://dl.bintray.com/gesser/OpenMobster" }
+}
 ```
 
 
