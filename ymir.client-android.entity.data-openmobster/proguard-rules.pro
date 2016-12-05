@@ -1,3 +1,9 @@
+# Mantém os nomes das classes que são referenciadas diretamente.
+-keepnames class org.openmobster.core.mobileCloud.** implements org.openmobster.core.mobileCloud.android.module.bus.InvocationHandler { *; }
+-keepnames class org.openmobster.core.mobileCloud.** extends android.app.Service { *; }
+-keepnames class org.openmobster.core.mobileCloud.** extends android.content.BroadcastReceiver { *; }
+
+
 #
 # Configurações necessárias por causa da estrutura de JSON (Jackson).
 #
