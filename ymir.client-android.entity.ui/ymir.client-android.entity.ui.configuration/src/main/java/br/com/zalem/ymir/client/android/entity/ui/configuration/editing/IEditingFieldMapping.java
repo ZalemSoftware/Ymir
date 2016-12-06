@@ -92,6 +92,7 @@ public interface IEditingFieldMapping extends ILabelableFieldMapping {
 	 * 	<li><b>inteiro</b>: apenas flags de números podem ser utilizadas, sendo que o {@link InputType#TYPE_CLASS_NUMBER} é aplicado automaticamente;</li>
 	 * 	<li><b>decimal</b>: apenas flags de números podem ser utilizadas, sendo que o {@link InputType#TYPE_CLASS_NUMBER} e o
 	 * 	{@link InputType#TYPE_NUMBER_FLAG_DECIMAL} são aplicados automaticamente.</li>
+     * </ul>
 	 *
 	 * @return o inteiro que representando o InputType ou <code>null</code> se o campo não deve utilizar esta funcionalidade.
 	 */

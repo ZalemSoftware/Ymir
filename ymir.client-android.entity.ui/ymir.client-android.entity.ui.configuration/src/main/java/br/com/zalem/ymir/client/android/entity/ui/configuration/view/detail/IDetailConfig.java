@@ -44,7 +44,7 @@ public interface IDetailConfig {
     /**
      * <b>Configuração opcional.</b><br>
      * <br>
-     * Determina se a ação de duplicar os registros através do detalhamento. Por padrão está desabilitada.
+     * Determina se a ação de duplicar o registro através do detalhamento está habilitada. Por padrão está desabilitada.
      *
      * @return <code>true</code> se a duplicação está habilitada e <code>false</code> caso contrário.
      */
