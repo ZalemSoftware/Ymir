@@ -1,0 +1,7 @@
+br.com.zalem.ymir.client.android.entity.data.openmobster
+br.com.zalem.ymir.client.android.entity.data.openmobster.cache
+br.com.zalem.ymir.client.android.entity.data.openmobster.cache.impl
+br.com.zalem.ymir.client.android.entity.data.openmobster.cursor
+br.com.zalem.ymir.client.android.entity.data.openmobster.metadata
+br.com.zalem.ymir.client.android.entity.data.openmobster.query
+br.com.zalem.ymir.client.android.entity.data.openmobster.util

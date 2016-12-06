@@ -1,0 +1,7 @@
+br.com.zalem.ymir.client.android.entity.data
+br.com.zalem.ymir.client.android.entity.data.cursor
+br.com.zalem.ymir.client.android.entity.data.metadata
+br.com.zalem.ymir.client.android.entity.data.query
+br.com.zalem.ymir.client.android.entity.data.query.select
+br.com.zalem.ymir.client.android.entity.data.util
+br.com.zalem.ymir.client.android.entity.data.view

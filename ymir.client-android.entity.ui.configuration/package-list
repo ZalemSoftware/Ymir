@@ -1,0 +1,6 @@
+br.com.zalem.ymir.client.android.entity.ui.configuration
+br.com.zalem.ymir.client.android.entity.ui.configuration.editing
+br.com.zalem.ymir.client.android.entity.ui.configuration.field
+br.com.zalem.ymir.client.android.entity.ui.configuration.view.detail
+br.com.zalem.ymir.client.android.entity.ui.configuration.view.layout
+br.com.zalem.ymir.client.android.entity.ui.configuration.view.list

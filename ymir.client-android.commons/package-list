@@ -1,0 +1,13 @@
+android.preference
+android.support.design.widget
+android.support.v4.app
+android.support.v4.widget
+android.support.v7.app
+android.support.v7.widget
+br.com.zalem.ymir.client.android.fragment
+br.com.zalem.ymir.client.android.menu
+br.com.zalem.ymir.client.android.util
+br.com.zalem.ymir.client.android.view
+br.com.zalem.ymir.client.android.widget
+com.wdullaer.materialdatetimepicker.date
+com.wdullaer.materialdatetimepicker.time

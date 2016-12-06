@@ -1,0 +1,12 @@
+br.com.zalem.ymir.client.android.entity.ui.editor
+br.com.zalem.ymir.client.android.entity.ui.editor.adapter
+br.com.zalem.ymir.client.android.entity.ui.editor.attribute
+br.com.zalem.ymir.client.android.entity.ui.editor.relationship
+br.com.zalem.ymir.client.android.entity.ui.fragment
+br.com.zalem.ymir.client.android.entity.ui.layout
+br.com.zalem.ymir.client.android.entity.ui.perspective
+br.com.zalem.ymir.client.android.entity.ui.search
+br.com.zalem.ymir.client.android.entity.ui.search.activitybased
+br.com.zalem.ymir.client.android.entity.ui.text
+br.com.zalem.ymir.client.android.entity.ui.text.mask
+br.com.zalem.ymir.client.android.entity.ui.text.mask.basic
