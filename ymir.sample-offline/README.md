@@ -40,10 +40,9 @@ tasks.withType(JavaCompile) { task ->
 }
 
 
-//Por enquanto, o Ymir ainda não está publicado no JCenter, sendo necessário configurar estes repositórios:
+//Por enquanto, o Ymir ainda não está publicado no JCenter, sendo necessário configurar este repositório:
 repositories {
 	maven { url "https://dl.bintray.com/gesser/Ymir" }
-	maven { url "https://dl.bintray.com/gesser/OpenMobster" }
 }
 ```
 
