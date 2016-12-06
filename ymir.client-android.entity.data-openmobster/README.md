@@ -6,7 +6,7 @@ Provê sincronização com a nuvem, persistência local para acesso offline e AP
 <br>
 ## Configurações
 
-Cada entidade precisa ter seus campos e relacionamentos definidos em um arquivo JSON. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](src/main/java/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.java).<br>
+Cada entidade precisa ter seus campos e relacionamentos definidos em um arquivo JSON. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.data-openmobster/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.html).<br>
 Recomenda-se que os arquivos JSON fiquem na pasta `raw` de recursos do Android e que a nomenclatura seja `<nome da entidade>_metadata.json`.<br>
 <br>
 Além disso, o OpenMobster precisa que os canias de dados sejam definidos em um arquivo chamado `openmobster-app.xml`, que deve estar na raiz do classpath. Para isto, recomenda-se criar uma pasta `resources`.<br>
