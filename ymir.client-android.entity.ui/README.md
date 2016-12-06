@@ -5,7 +5,7 @@ Componente que disponibiliza telas (perspectivas) prontas de listagem, detalhame
 <br>
 ## Configurações
 
-Cada entidade tem suas telas e layouts definidos através de configurações. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](ymir.client-android.entity.ui.configuration/src/main/java/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.java).
+Cada entidade tem suas telas e layouts definidos através de configurações. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.ui.configuration/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.html).
 Os layouts disponíveis para os registros de lista e os cabeçalhos do detalhamento são:
 
 > Posteriormente, será possível definir layouts de lista/detalhe customizados.
