@@ -38,12 +38,6 @@ tasks.withType(JavaCompile) { task ->
 	//Configura a geração do banco de anotações, identificado pelo pacote da aplicação.
 	options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.sample.offline"
 }
-
-
-//Por enquanto, o Ymir ainda não está publicado no JCenter, sendo necessário configurar este repositório:
-repositories {
-	maven { url "https://dl.bintray.com/gesser/Ymir" }
-}
 ```
 
 
