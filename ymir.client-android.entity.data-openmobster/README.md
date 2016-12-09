@@ -1,6 +1,6 @@
 # Dados de entidades com OpenMobster
 
-Componente de dados de entidades baseado no [OpenMobster](https://openmobster.googlecode.com) ([link alternativo](https://web.archive.org/web/code.google.com/p/openmobster/)).<br>
+Componente de dados de entidades baseado no [OpenMobster](https://github.com/ZalemSoftware/OpenMobster).<br>
 Provê sincronização com a nuvem, persistência local para acesso offline e API simplificada de manipulação dos dados.
 
 <br>
