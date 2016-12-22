@@ -1,4 +1,5 @@
 # Interface de entidades
+> [JavaDoc](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.ui)
 
 Componente que disponibiliza telas (perspectivas) prontas de listagem, detalhamento e edição de registros de entidades.
 
