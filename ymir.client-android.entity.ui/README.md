@@ -2,8 +2,8 @@
 > [JavaDoc](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.ui)
 
 Componente que disponibiliza telas (perspectivas) prontas de listagem, detalhamento e edição de registros de entidades.
-
 <br>
+
 ## Configurações
 
 Cada entidade tem suas telas e layouts definidos através de configurações. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.ui.configuration/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.html).
@@ -16,9 +16,10 @@ Os layouts disponíveis para os registros de lista e os cabeçalhos do detalhame
 <br>
 Além disso, é possível configurar `listeners de eventos` para adicionar regras de negócio, validações e cálculos nas interfaces das entidades. Para isto, basta declarar uma classe que implemente a interface `IEntityUIEventListener` e configurá-la no Módulo.<br>
 <br>
-> Por enquanto, documentações mais completas sobre como utilizar este componente podem ser vistas no [aplicativo de exemplo](../ymir.sample-offline#ui).
 
+> Por enquanto, documentações mais completas sobre como utilizar este componente podem ser vistas no [aplicativo de exemplo](../ymir.sample-offline#ui).
 <br>
+
 ## Dependências
 
 Este componente depende dos seguintes módulos:
