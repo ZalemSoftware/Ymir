@@ -5,12 +5,12 @@ Passo a passo de como criar uma nova aplicação utilizando o Ymir. Foram utiliz
 >Em breve, um aplicativo exemplo com sincronização de dados com a nuvem.
 
 ## Índice
-  0. [Gradle](#gradle)
-  0. [Dados das entidades](#data)
-  0. [Interfaces das entidades](#ui)
-  0. [Perspectivas](#perspectives)
-  0. [Módulo](#module)
-  0. [Manifest](#manifest)
+  1. [Gradle](#gradle)
+  1. [Dados das entidades](#data)
+  1. [Interfaces das entidades](#ui)
+  1. [Perspectivas](#perspectives)
+  1. [Módulo](#module)
+  1. [Manifest](#manifest)
 <br>
 
 
