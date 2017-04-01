@@ -15,6 +15,7 @@ Passo a passo de como criar uma nova aplicação utilizando o Ymir. Foram utiliz
 
 
 <a name="gradle"/>
+
 ## 1. Gradle
 
 A configuração abaixo determina que a aplicação irá utilizar o [componente de interfaces de entidades](../ymir.client-android.entity.ui). Para isto, também é necessário definir como as interfaces serão configureadas (JSON) e qual será o provedor de dados (OpenMobster).<br>
@@ -43,6 +44,7 @@ tasks.withType(JavaCompile) { task ->
 
 
 <a name="data"/>
+
 ## 2. Dados das entidades
 
 O [componente de dados do OpenMobster](../ymir.client-android.entity.data-openmobster) necessita que cada entidade tenha seus campos e relacionamentos definidos em um arquivo JSON. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.data-openmobster/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.html).
@@ -94,6 +96,7 @@ Os canais também são utilizados para a sincronização de dados com a nuvem, o
 
 
 <a name="ui"/>
+
 ## 3. Interfaces das entidades
 O [componente de interfaces de entidades](../ymir.client-android.entity.ui) necessita que cada entidade tenha suas telas configuradas. Esta aplicação utiliza a versão [JSON da configuração](../ymir.client-android.entity.ui.configuration-json), mas há a intenção de disponibilizar uma outra forma em XML (a fim de melhor utilizar os recursos string do Android). Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.ui.configuration/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.html).
 
@@ -228,6 +231,7 @@ public final class ProductEventListener extends EntityUIEventListenerAdapter {
 
 
 <a name="perspectives"/>
+
 ## 4. Perspectivas
 Cada tela do [componente de interfaces de entidades](../ymir.client-android.entity.ui) é uma perspectiva, um tipo de fragmento que atua como uma Activity. O [componente de perspectivas](../ymir.client-android.perspective) dispõe uma forma robusta de configuração, possibilitando definir qual perspectiva será aberta para cada ação de cada entidade. Desta forma, é possível utilizar as perspectivas já existentes do componente de interfaces, definir versões customiadas das perspectivas já existentes ou até criar perspectivas totalmente novas.<br>
 As perspectivas da aplicação devem ser definidas em um arquivo XML, dentro da pasta de recursos `xml` do Android, conforme o exemplo:
@@ -285,6 +289,7 @@ Além disso, o componente de perspectivas dispõe o menu de navegação lateral,
 
 
 <a name="module"/>
+
 ## 5. Módulo
 
 O Ymir utiliza o [RoboGuice](https://github.com/roboguice/roboguice) para controlar injeção de dependências entre os componentes (como o gerenciador de dados ou o  gerenciador de configurações). Desta forma, é possível trocar os componentes originais por mocks ou até por componentes próprios de forma robusta, sem a necessidade de alterar cada classe que os utilizam.<br>
@@ -348,6 +353,7 @@ public final class SampleOfflineModule extends AbstractModule {
 
 
 <a name="manifest"/>
+
 ## 6. Manifest
 
 Por fim, algumas configurações são necessárias no manifest da aplicação Android. O RoboGuice precisa saber o caminho do Módulo da aplicação e o [componente de perspectivas](../ymir.client-android.perspective) precisa ter sua Activity configurada. Esta Activity geralmente é o ponto de entrada da aplicação, já que controla a execução de todas as perspectivas declaradas anteriormente. Entretanto, ainda é possível declarar e abrir outras Activities normalmente. Segue um exemplo de manifest:
