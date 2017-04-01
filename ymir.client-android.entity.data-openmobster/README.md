@@ -3,8 +3,8 @@
 
 Componente de dados de entidades baseado no [OpenMobster](https://github.com/ZalemSoftware/OpenMobster).<br>
 Provê sincronização com a nuvem, persistência local para acesso offline e API simplificada de manipulação dos dados.
-
 <br>
+
 ## Configurações
 
 Cada entidade precisa ter seus campos e relacionamentos definidos em um arquivo JSON. Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.data-openmobster/br/com/zalem/ymir/client/android/entity/data/openmobster/metadata/EntityMetadataConfig.html).<br>
@@ -21,11 +21,11 @@ Os canais representam entidades de dados para o OpenMobster, sendo utilizados ta
     </channels>
 </app-conf>
 ```
-
 <br>
+
 > Por enquanto, documentações mais completas sobre como utilizar este componente podem ser vistas no [aplicativo de exemplo](../ymir.sample-offline#data).
-
 <br>
+
 ## Dependências
 
 Este componente depende dos seguintes módulos:
