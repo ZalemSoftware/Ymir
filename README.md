@@ -31,9 +31,9 @@ compile 'br.com.zalem.ymir:ymir.client-android.entity.ui:1.0.0'
 compile 'br.com.zalem.ymir:ymir.client-android.entity.ui.configuration-json:1.0.0'
 compile 'br.com.zalem.ymir:ymir.client-android.entity.data-openmobster:1.0.0'
 ```
-
-
 <br>
+
+
 #### Apenas componente de dados
 ```gradle
 compile 'br.com.zalem.ymir:ymir.client-android.entity.data-openmobster:1.0.0'
