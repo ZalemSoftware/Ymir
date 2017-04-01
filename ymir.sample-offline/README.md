@@ -11,9 +11,9 @@ Passo a passo de como criar uma nova aplicação utilizando o Ymir. Foram utiliz
   0. [Perspectivas](#perspectives)
   0. [Módulo](#module)
   0. [Manifest](#manifest)
-
-
 <br>
+
+
 <a name="gradle"/>
 ## 1. Gradle
 
@@ -39,9 +39,9 @@ tasks.withType(JavaCompile) { task ->
 	options.compilerArgs << "-AguiceAnnotationDatabasePackageName=br.com.zalem.ymir.sample.offline"
 }
 ```
-
-
 <br>
+
+
 <a name="data"/>
 ## 2. Dados das entidades
 
@@ -90,9 +90,9 @@ Os canais também são utilizados para a sincronização de dados com a nuvem, o
     </channels>
 </app-conf>
 ```
-
-
 <br>
+
+
 <a name="ui"/>
 ## 3. Interfaces das entidades
 O [componente de interfaces de entidades](../ymir.client-android.entity.ui) necessita que cada entidade tenha suas telas configuradas. Esta aplicação utiliza a versão [JSON da configuração](../ymir.client-android.entity.ui.configuration-json), mas há a intenção de disponibilizar uma outra forma em XML (a fim de melhor utilizar os recursos string do Android). Por enquanto, a estrutura completa desta configuração pode ser vista a partir de sua [representação POJO](https://zalemsoftware.github.io/Ymir/ymir.client-android.entity.ui.configuration/br/com/zalem/ymir/client/android/entity/ui/configuration/IEntityConfig.html).
@@ -224,9 +224,9 @@ public final class ProductEventListener extends EntityUIEventListenerAdapter {
     }
 }
 ```
-
-
 <br>
+
+
 <a name="perspectives"/>
 ## 4. Perspectivas
 Cada tela do [componente de interfaces de entidades](../ymir.client-android.entity.ui) é uma perspectiva, um tipo de fragmento que atua como uma Activity. O [componente de perspectivas](../ymir.client-android.perspective) dispõe uma forma robusta de configuração, possibilitando definir qual perspectiva será aberta para cada ação de cada entidade. Desta forma, é possível utilizar as perspectivas já existentes do componente de interfaces, definir versões customiadas das perspectivas já existentes ou até criar perspectivas totalmente novas.<br>
@@ -281,9 +281,9 @@ Além disso, o componente de perspectivas dispõe o menu de navegação lateral,
     <!-- ... -->
 </ymirMenu>
 ```
-
-
 <br>
+
+
 <a name="module"/>
 ## 5. Módulo
 
@@ -344,9 +344,9 @@ public final class SampleOfflineModule extends AbstractModule {
 	}
 }
 ```
-
-
 <br>
+
+
 <a name="manifest"/>
 ## 6. Manifest
 
